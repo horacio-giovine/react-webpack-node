@@ -53,6 +53,6 @@ export function initialRoutes(app){
     app.put('/topic/:id', topicsController.update);
     app.delete('/topic/:id', topicsController.remove);
   } else {
-    console.warn(unsupportedMessage('topics routes'));
+    console.warn(unsupportedMessage('topics routess'));
   }
 }
