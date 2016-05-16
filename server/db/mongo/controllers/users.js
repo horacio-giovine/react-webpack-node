@@ -87,5 +87,6 @@ export function salesforceSignUp(req, res, next) {
 export default {
   login,
   logout,
-  signUp
+  signUp,
+  salesforceSignUp
 };
