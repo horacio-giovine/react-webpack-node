@@ -1,0 +1,31 @@
+#portfolio{
+
+  #tabs-container{
+    .tabs-content {
+      width: 25% !important;
+    }
+    .tab{
+      padding: 15px 0px 0px 0px !important;
+    }
+  }
+
+  .goal-row{
+    background-color: white;
+    margin: 2px 15px 2px 15px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  .goal-value{
+    padding-top: 3px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  .goal-bonds{
+    color: #a3a3a3;
+    font-size: 11px;
+    line-height: 1.6em;
+  }
+}

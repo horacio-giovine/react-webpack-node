@@ -3,6 +3,14 @@ var webpack = require('webpack');
 var assetsPath = path.join(__dirname, '..', 'public', 'assets');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 
+const BASE_CSS_LOADER = 'css?sourceMap&-minimize'
+const cssModulesLoader = [
+    BASE_CSS_LOADER,
+    'modules',
+    'importLoaders=1',
+    'localIdentName=[name]__[local]___[hash:base64:5]'
+  ].join('&')
+  
 var commonLoaders = [
   {
     /*
@@ -28,7 +36,24 @@ var commonLoaders = [
         limit: 10000,
     }
   },
-  { test: /\.html$/, loader: 'html-loader' }
+  { test: /\.html$/, loader: 'html-loader' },
+  {
+    test: /\.css$/,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss'
+    ]
+  },
+  {
+    test: /\.scss$/,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss',
+      'sass?sourceMap'
+    ]
+  }
 ];
 
 var postCSSConfig = function() {
@@ -54,6 +79,16 @@ var postCSSConfig = function() {
 };
 
 module.exports = {
+    // loaders: [
+    //   {
+    //     test: /\.css$/,
+    //     loader: "css-loader!autoprefixer-loader"
+    //   },
+    //   {
+    //     test: /\.scss$/,
+    //     loader: "css-loader!sass-loader"
+    //   }
+    // ],
     // eval - Each module is executed with eval and //@ sourceURL.
     devtool: 'eval',
     // The configuration for the client

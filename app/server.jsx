@@ -1,29 +1,29 @@
-import axios from 'axios';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { createMemoryHistory, match, RouterContext } from 'react-router';
-import { Provider } from 'react-redux';
-import createRoutes from 'routes';
-import configureStore from 'store/configureStore';
-import preRenderMiddleware from 'middlewares/preRenderMiddleware';
-import header from 'components/Meta';
+import axios from 'axios'
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+import { createMemoryHistory, match, RouterContext } from 'react-router'
+import { Provider } from 'react-redux'
+import createRoutes from 'routes'
+import configureStore from 'store/configureStore'
+import preRenderMiddleware from 'middlewares/preRenderMiddleware'
+import header from 'components/meta/meta'
 
 const clientConfig = {
   host: process.env.HOSTNAME || 'localhost',
   port: process.env.PORT || '3000'
-};
+}
 
 // configure baseURL for axios requests (for serverside API calls)
-axios.defaults.baseURL = `http://${clientConfig.host}:${clientConfig.port}`;
+axios.defaults.baseURL = `http://${clientConfig.host}:${clientConfig.port}`
 
 /*
  * Export render function to be used in server/config/routes.js
  * We grab the state passed in from the server and the req object from Express/Koa
  * and pass it into the Router.run function.
  */
-export default function render(req, res) {
-  const authenticated = req.isAuthenticated();
-  const history = createMemoryHistory();
+export default function render (req, res) {
+  const authenticated = req.isAuthenticated()
+  const history = createMemoryHistory()
   const store = configureStore({
     user: {
       authenticated,
@@ -31,8 +31,8 @@ export default function render(req, res) {
       message: '',
       isLogin: true
     }
-  }, history);
-  const routes = createRoutes(store);
+  }, history)
+  const routes = createRoutes(store)
 
   /*
    * From the react-router docs:
@@ -57,9 +57,9 @@ export default function render(req, res) {
    */
   match({routes, location: req.url}, (err, redirect, props) => {
     if (err) {
-      res.status(500).json(err);
+      res.status(500).json(err)
     } else if (redirect) {
-      res.redirect(302, redirect.pathname + redirect.search);
+      res.redirect(302, redirect.pathname + redirect.search)
     } else if (props) {
       // This method waits for all render component
       // promises to resolve before returning to browser
@@ -69,12 +69,12 @@ export default function render(req, res) {
         props.params
       )
       .then(() => {
-        const initialState = store.getState();
+        const initialState = store.getState()
         const componentHTML = renderToString(
           <Provider store={store}>
             <RouterContext {...props} />
           </Provider>
-        );
+        )
 
         res.status(200).send(`
           <!doctype html>
@@ -86,17 +86,17 @@ export default function render(req, res) {
             </head>
             <body>
               <div id="app">${componentHTML}</div>
-              <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
+              <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}</script>
               <script type="text/javascript" charset="utf-8" src="/assets/app.js"></script>
             </body>
           </html>
-        `);
+        `)
       })
       .catch((err) => {
-        res.status(500).json(err);
-      });
+        res.status(500).json(err)
+      })
     } else {
-      res.sendStatus(404);
+      res.sendStatus(404)
     }
-  });
+  })
 }

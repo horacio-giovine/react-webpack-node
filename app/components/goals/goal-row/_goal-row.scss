@@ -1,0 +1,256 @@
+#goal-row{
+  color: grey;
+  font-weight: 300;
+  border-bottom: 1px solid #757575;
+  padding: 20px;
+  line-height: 20px;
+  overflow: auto;
+
+  img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .goal-span{
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  .goal-span-green{
+    @extend .goal-span;
+    background-color: rgb(120,194,38);
+  }
+
+  .goal-span-red{
+    @extend .goal-span;
+    background-color: rgb(208,2,27);
+  }
+
+  .probability-section{
+    display: flex;
+    width: 100%;
+  }
+
+  .probability{
+    font-size: 14px;
+    display: flex;
+    width: 100%;
+  }
+
+  .probability-green{
+    @extend .probability;
+    color: rgb(120,194,38);
+  }
+
+  .probability-red{
+    @extend .probability;
+    color: rgb(208,2,27);
+    display: inline-flex;
+  }
+
+  .fix-button{
+    font-size: 11px !important;
+    float: left;
+    width: 50px;
+    background-color: rgb(208,2,27);
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    height: 20px;
+    padding: 2px;
+  }
+
+  .title{
+    font-size: 10px;
+  }
+
+  .desc{
+    margin-top: 0px;
+  }
+
+  .fields{
+    margin-top: 15px;
+  }
+
+  .fields-section{
+    display: flex;
+    flex-direction: row;
+    font-size: 11px;
+    width: 100%;
+  }
+
+  .long-field-section{
+    @extend .fields-section;
+  }
+
+  .field-title{
+    font-weight: bold;
+    font-size: 11px;
+    color: grey;
+    display: flex;
+    width: 60%;
+  }
+
+  .field-value{
+    font-size: 11px;
+    color: grey;
+    display: flex;
+    width: 40%;
+  }
+
+  .goal-detail-link{
+    width: 30px;
+    font-size: 30px;
+    color: rgb(180,180,180);
+    display: flex;
+    align-self: baseline;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-container{
+    width: 25%;
+    display: inline-block;
+    float: none;
+    height: auto;
+  }
+
+  .title-link{
+    width: 100%;
+    display: flex;
+  }
+
+  .title-section{
+    display: inline-block;
+    width: calc(100% - 30px);
+  }
+
+  .image-title{
+    display: inline-block;
+    flex-direction: row;
+    align-items: center;
+    float: right;
+    width: 75%;
+
+  }
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+    .fields-section{
+      display: inline-block;
+    }
+
+    .long-fields-section{
+      padding-left: 0px;
+      margin-right: 10px;
+    }
+
+    .field-title{
+      display: inline-block;
+      font-size: 14px;
+      padding-right: 10px;
+      width: auto;
+    }
+
+    .field-value{
+      display: inline-block;
+      font-size: 14px;
+      width: auto;
+    }
+
+    .fix-button{
+      display: inline-block;
+      float: none;
+      padding: 0px;
+      font-size: 14px !important;
+      width: 40px;
+    }
+
+    img{
+      margin-left: 5px;
+      margin-top: 0px;
+      width: 100px;
+      height: 100px;
+    }
+
+    .image-container{
+      height: 100%;
+      float: left;
+      width: 20%;
+    }
+
+    .image-title{
+      float: none;
+      display: flex;
+      width: 80%;
+      margin-top: 8px;
+    }
+
+    .fields{
+      margin-top: 0px;
+    }
+
+    .fields-section{
+      font-size: 14px;
+      padding-left: 0px;
+      width: auto;
+      display: inline-block;
+    }
+
+    .desc{
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .title{
+      font-size: 20px;
+    }
+
+    .title-section{
+      margin-bottom: 30px;
+      padding-left: 0px;
+    }
+
+    .probability-section{
+      margin-left: 30px;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 992px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1280px){
+
+  }
+}

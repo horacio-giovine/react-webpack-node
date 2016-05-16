@@ -1,0 +1,74 @@
+#addVisionCard{
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  display: inline-block;
+
+}
+
+#addVisionCard div{
+  display: table;
+  /*position: absolute;*/
+}
+
+#addVisionCard img{
+  width: 250px;
+  height: 250px;
+}
+
+/*
+iPhone 6
+*/
+@media (min-width: 375px){
+
+}
+
+/*
+iPhone 6+
+*/
+@media (min-width: 414px){
+
+}
+
+/*
+Tablet
+*/
+@media (min-width: 600px){
+  #addVisionCard{
+    margin: 10px 10px 0;
+  }
+  #addVisionCard img{
+
+  }
+}
+
+/*
+Tablet
+*/
+@media (min-width: 700px){
+  #addVisionCard img{
+
+  }
+}
+
+  /*
+Desktop
+*/
+@media (min-width: 992px){
+  #addVisionCard{
+
+  }
+}
+
+/*
+Desktop
+*/
+@media (min-width: 1280px){
+  #addVisionCard{
+
+  }
+  #addVisionCard img{
+
+  }
+}
+

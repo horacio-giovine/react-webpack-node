@@ -1,0 +1,162 @@
+#vision-container{
+  width: 100%;
+  margin-top: 66px;
+  margin-bottom: 53px;
+  background-color: #fff;
+  overflow: auto;
+
+  #addVisionCard{
+    margin: 10px 10px 0px 0px;
+  }
+
+  > .header{
+    width: 100%;
+    position: fixed;
+    top: 50px;
+  }
+  .position-static{
+    position: static;
+  }
+
+  .no-padding-left{
+    padding-left: 0px;
+  }
+
+  > .content{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+    display: block;
+    text-align: center;
+    > a{
+      text-decoration: none;
+    }
+  }
+
+  > .content .column{
+    display: inline-block;
+    padding-bottom: 15px;
+
+    > a{
+      text-decoration: none;
+    }
+  }
+
+  > .social{
+    background-color: white;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 10px 15px 10px 15px;
+    height: 53px;
+    position: fixed;
+    bottom: 0px;
+    display: block;
+
+    .media-option{
+      .text{
+        float: left;
+        padding-top: 8px;
+        color: grey;
+        font-size: 15px;
+      }
+
+      .icons{
+        color: grey;
+        font-size: 15px;
+        > img{
+          margin-left: 15px;
+        }
+      }
+
+      .media-icon{
+        height: 30px;
+      }
+
+      .printer-icon{
+        float: right;
+        img{
+          height: 30px;
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+
+  #addVisionCard{
+    margin: 10px 10px 0 10px;
+  }
+
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 600px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+    height: calc(100vh - 120px);
+    margin-top: 96px;
+    #addVisionCard{
+      margin: 10px 10px 0 -10px;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 992px){
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    > .content {
+      margin-left: 10px;
+    }
+
+    > .social{
+      position: static;
+    }
+
+    > .header{
+      position: static;
+    }
+
+    #addVisionCard{
+      margin: 10px 10px 0 -5px;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1200px){
+    #addVisionCard{
+      margin: 10px 10px 0px 8px
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1600px){
+    #addVisionCard{
+      margin: 10px 10px 0px -10px
+    }
+  }
+}

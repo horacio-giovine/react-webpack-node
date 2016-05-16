@@ -2,6 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 var assetsPath = path.join(__dirname, '..', 'public', 'assets');
 
+const BASE_CSS_LOADER = 'css?sourceMap&-minimize'
+const cssModulesLoader = [
+    BASE_CSS_LOADER,
+    'modules',
+    'importLoaders=1',
+    'localIdentName=[name]__[local]___[hash:base64:5]'
+  ].join('&')
+
 var commonLoaders = [
   {
     /*
@@ -28,7 +36,15 @@ var commonLoaders = [
         limit: 10000,
     }
   },
-  { test: /\.html$/, loader: 'html-loader' }
+  { test: /\.html$/, loader: 'html-loader' },
+  {
+    test: /\.css$/,
+    loaders: [
+      'style',
+      cssModulesLoader,
+      'postcss'
+    ]
+  }
 ];
 
 module.exports = {
@@ -53,6 +69,15 @@ module.exports = {
            {
               test: /\.css$/,
               loader: 'css/locals?module&localIdentName=[name]__[local]___[hash:base64:5]'
+           },
+           {
+             test: /\.scss$/,
+             loaders: [
+               'style',
+               cssModulesLoader,
+               'postcss',
+               'sass?sourceMap'
+             ]
            }
       ])
     },

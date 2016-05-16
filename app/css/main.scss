@@ -1,0 +1,90 @@
+:global {
+  @import 'vendor/bootstrap/bootstrap.min';
+  @import 'base';
+  @import 'vendor/normalize';
+  @import '/generic';
+
+  @import 'app/layouts/nav-bar/nav-bar';
+  @import 'app/components/nav-bar/content-container/content-container';
+  @import 'app/containers/page-container/page-container';
+  @import 'app/containers/home-view/home-view';
+  @import 'app/routes/profile/profile';
+  @import 'app/routes/portfolio/portfolio';
+  @import 'app/components/tab/tab';
+  @import 'app/components/nav-bar/modal-item/modal-item';
+  @import 'app/components/nav-bar/profile-menu/profile-menu';
+  @import 'app/components/nav-bar/profile-button/profile-button';
+  @import 'app/routes/aspiration-details/aspiration-details';
+  @import 'app/components/page-header/page-header';
+  @import 'app/components/aspiration-card/aspiration-card';
+  @import 'app/routes/vision/vision';
+  @import 'app/components/add-aspiration-card/add-aspiration-card';
+  @import 'app/routes/goal-detail/goal-detail';
+  @import 'app/routes/goals/goals';
+  @import 'app/components/goals/goal-row/goal-row';
+  @import 'app/layouts/dashboard';
+  // Some best-practice CSS that's useful for most apps
+  // Just remove them if they're not what you want
+  // html {
+  //   box-sizing: border-box;
+  // }
+  //
+  // html,
+  body {
+    // margin: 0;
+    // padding: 0;
+    // height: 100%;
+    // width: 100%;
+    // font-size: 14px;
+    background-color: #eceff1;
+    font-family: Roboto,sans-serif;
+  }
+  //
+  // *,
+  // *:before,
+  // *:after {
+  //   box-sizing: inherit;
+  // }
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 992px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1200px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1600px){
+
+  }
+}

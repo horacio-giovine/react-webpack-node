@@ -1,10 +1,10 @@
-import { polyfill } from 'es6-promise';
-import request from 'axios';
-import { push } from 'react-router-redux';
+import { polyfill } from 'es6-promise'
+import request from 'axios'
+import { push } from 'react-router-redux'
 
-import * as types from 'types';
+import * as types from 'types'
 
-polyfill();
+polyfill()
 
 /*
  * Utility function to make AJAX requests using isomorphic fetch.
@@ -15,120 +15,119 @@ polyfill();
  * @param String endpoint - defaults to /login
  * @return Promise
  */
-function makeUserRequest(method, data, api = '/login') {
+function makeUserRequest (method, data, api = '/login') {
   return request({
     url: api,
     method,
     data,
     withCredentials: true
-  });
+  })
 }
-
 
 // Log In Action Creators
-function beginLogin() {
-  return { type: types.MANUAL_LOGIN_USER };
+function beginLogin () {
+  return { type: types.MANUAL_LOGIN_USER }
 }
 
-function loginSuccess(message) {
+function loginSuccess (message) {
   return {
     type: types.LOGIN_SUCCESS_USER,
     message
-  };
+  }
 }
 
-function loginError(message) {
+function loginError (message) {
   return {
     type: types.LOGIN_ERROR_USER,
     message
-  };
+  }
 }
 
 // Sign Up Action Creators
-function signUpError(message) {
+function signUpError (message) {
   return {
     type: types.SIGNUP_ERROR_USER,
     message
-  };
+  }
 }
 
-function beginSignUp() {
-  return { type: types.SIGNUP_USER };
+function beginSignUp () {
+  return { type: types.SIGNUP_USER }
 }
 
-function signUpSuccess(message) {
+function signUpSuccess (message) {
   return {
     type: types.SIGNUP_SUCCESS_USER,
     message
-  };
+  }
 }
 
 // Log Out Action Creators
-function beginLogout() {
-  return { type: types.LOGOUT_USER};
+function beginLogout () {
+  return { type: types.LOGOUT_USER }
 }
 
-function logoutSuccess() {
-  return { type: types.LOGOUT_SUCCESS_USER };
+function logoutSuccess () {
+  return { type: types.LOGOUT_SUCCESS_USER }
 }
 
-function logoutError() {
-  return { type: types.LOGOUT_ERROR_USER };
+function logoutError () {
+  return { type: types.LOGOUT_ERROR_USER }
 }
 
-export function toggleLoginMode() {
-  return { type: types.TOGGLE_LOGIN_MODE };
+export function toggleLoginMode () {
+  return { type: types.TOGGLE_LOGIN_MODE }
 }
 
-export function manualLogin(data) {
+export function manualLogin (data) {
   return dispatch => {
-    dispatch(beginLogin());
+    dispatch(beginLogin())
 
     return makeUserRequest('post', data, '/login')
       .then(response => {
         if (response.status === 200) {
-          dispatch(loginSuccess(response.data.message));
-          dispatch(push('/'));
+          dispatch(loginSuccess(response.data.message))
+          dispatch(push('/'))
         } else {
-          dispatch(loginError('Oops! Something went wrong!'));
+          dispatch(loginError('Oops! Something went wrong!'))
         }
       })
       .catch(err => {
-        dispatch(loginError(err.data.message));
-      });
-  };
+        dispatch(loginError(err.data.message))
+      })
+  }
 }
 
-export function signUp(data) {
+export function signUp (data) {
   return dispatch => {
-    dispatch(beginSignUp());
+    dispatch(beginSignUp())
 
     return makeUserRequest('post', data, '/signup')
       .then(response => {
         if (response.status === 200) {
-          dispatch(signUpSuccess(response.data.message));
-          dispatch(push('/'));
+          dispatch(signUpSuccess(response.data.message))
+          dispatch(push('/'))
         } else {
-          dispatch(signUpError('Oops! Something went wrong'));
+          dispatch(signUpError('Oops! Something went wrong'))
         }
       })
       .catch(err => {
-        dispatch(signUpError(err.data.message));
-      });
-  };
+        dispatch(signUpError(err.data.message))
+      })
+  }
 }
 
-export function logOut() {
+export function logOut () {
   return dispatch => {
-    dispatch(beginLogout());
+    dispatch(beginLogout())
 
     return makeUserRequest('post', null, '/logout')
       .then(response => {
         if (response.status === 200) {
-          dispatch(logoutSuccess());
+          dispatch(logoutSuccess())
         } else {
-          dispatch(logoutError());
+          dispatch(logoutError())
         }
-      });
-  };
+      })
+  }
 }

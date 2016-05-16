@@ -106,7 +106,7 @@ module.exports = [
     },
     resolve: {
       root: [path.join(__dirname, '..', 'app')],
-      extensions: ['', '.js', '.jsx', '.css']
+      extensions: ['', '.js', '.jsx', '.css', '.scss']
     },
     plugins: [
         // extract inline css from modules into separate files
@@ -145,7 +145,7 @@ module.exports = [
     },
     resolve: {
       root: [path.join(__dirname, '..', 'app')],
-      extensions: ['', '.js', '.jsx', '.css']
+      extensions: ['', '.js', '.jsx', '.css', '.scss']
     },
     plugins: [
         new webpack.IgnorePlugin(/vertx/),

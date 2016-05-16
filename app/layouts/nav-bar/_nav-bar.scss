@@ -1,0 +1,212 @@
+#nav-bar{
+  background-color: #151D31;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+
+  #dashboard{
+    display: initial;
+  }
+
+  .burger{
+    position: fixed;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    margin-left: 8px;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 50%;
+  }
+
+  .messages{
+    right: 0px;
+  }
+
+  .notifications{
+    right: 0px;
+  }
+
+  .navBrandContainer img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+  }
+
+  .button-container{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+  }
+
+  .navBrandContainer{
+    position: relative;
+    width: 100px;
+    margin: 0px auto 0px auto;
+
+    a{
+      display: inline-block;
+
+      img{
+        width: 100px;
+        padding-top: 12px;
+      }
+    }
+  }
+
+  .navBrandMenu{
+    position: fixed;
+    width: 140px;
+    height: 50px;
+    top: 0%;
+    right: 0%;
+  }
+
+  .nav-brand-menu-button{
+    float: right;
+    display: inline;
+    width: 30px;
+    height: 50px;
+    padding-top: 14px;
+  }
+
+  .nav-brand-menu-button:hover{
+    background-color: rgba(255, 255, 255, 0.17);
+  }
+
+  .nav-brand-menu-button img{
+    margin: 0px 0px 0px 8px;
+  }
+
+  .nav-brand-menu-circle-number{
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #fff;
+    position: absolute;
+    top: 5px;
+    margin-left: 15px;
+  }
+
+  .nav-brand-menu-number{
+    text-align: center;
+    line-height: initial;
+    border-radius: 50px;
+    color: white;
+  }
+
+
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+    .navBrandContainer img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+    .navBrandContainer img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+    .navBrandContainer img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 992px){
+    .navBrandContainer{
+      display: block;
+      position: relative;
+      width: 120px;
+      margin: 0px auto 0px auto;
+    }
+
+    .nav-brand-menu-button{
+      width: 45px;
+      height: 65px;
+      padding-top: 24px;
+    }
+
+    .nav-brand-menu-button img{
+      margin: 0px 0px 0px 15px;
+    }
+
+    .nav-brand-menu-circle-number{
+      top: 15px;
+      margin-left: 23px;
+    }
+
+    .navBrandContainer a img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    height: 65px;
+
+    #dashboard{
+      display: none;
+    }
+
+    .burger{
+      display: none;
+    }
+    .messages{
+      right: 45px;
+    }
+
+    .notifications{
+      right: 90px;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1280px){
+    .messages{
+      right: 45px;
+    }
+
+    .notifications{
+      right: 90px;
+    }
+
+    .navBrandContainer img{
+      width: 100px;
+      padding-top: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

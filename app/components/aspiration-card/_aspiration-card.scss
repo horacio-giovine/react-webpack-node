@@ -1,0 +1,95 @@
+#vision-card{
+  width: 250px;
+  height: 250px;
+  padding-bottom: 15px;
+  display: inline-block;
+  margin-bottom: 10px;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+
+  > .content{
+    width: 250px;
+    height: 250px;
+    display: table;
+  }
+
+  .header{
+    text-align: center;
+    color: white;
+    font-size: smaller;
+    padding-top: 15px;
+  }
+
+  .title{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+  }
+
+  .text{
+    text-align: center;
+    color: #fff;
+    font-size: large;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .activeGoal{
+    text-align: center;
+    color: white;
+    font-size: smaller;
+    padding-top: 15px;
+  }
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 600px){
+   margin: 10px 30px 0px 10px;
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+
+  }
+
+    /*
+  Desktop
+  */
+  @media (min-width: 992px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1200px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1600px){
+
+  }
+}

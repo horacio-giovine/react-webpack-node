@@ -1,0 +1,335 @@
+#aspiration-details {
+  background-color: #fff;
+  font-size: 14px;
+  overflow: auto;
+  margin-top: 66px;
+
+  .page-header{
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    left: 0px;
+  }
+
+  .text-over-image{
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .only-desktop{
+    display: none;
+  }
+
+  .aspiration-image-container {
+    width: 100%;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .aspiration-image-container img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .aspiration-container {
+    width: 100%;
+    border: 0;
+    height: 150px;
+    overflow:hidden;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 50%;
+    border-radius: 0px;
+  }
+
+  .text-container{
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .field-title{
+    @extend .text-position;
+    width: 100%;
+    color: rgb(91,91,91);
+    font-weight: bold;
+    display: flex;
+    width: 30%;
+  }
+
+  .field-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .text-position {
+    padding: 2px;
+  }
+
+  .aspiration-component {
+    height:250px;
+  }
+
+  .field-value{
+    @extend .text-position;
+    width: 70%;
+    color: #757575;
+    display: flex;
+    width: 70%;
+  }
+
+  .goals-rows{
+    a{
+      text-decoration: none;
+    }
+  }
+
+  .goal-span{
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+    border-radius: 50%;
+  }
+
+  .goal-span-green{
+    @extend .goal-span;
+    background-color: rgb(120,194,38);
+  }
+
+  .goal-span-red{
+    @extend .goal-span;
+    background-color: rgb(208,2,27);
+  }
+
+  .probability{
+    display: flex;
+    width: 58%;
+  }
+
+  .probability-green{
+    @extend .probability;
+    color: rgb(120,194,38);
+  }
+
+  .probability-red{
+    @extend .probability;
+    color: rgb(208,2,27);
+    display: inline-flex;
+  }
+
+  .aspiration-row-container{
+    background-color: rgb(250,250,250);
+    border-bottom: 1px solid rgb(216,216,216);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+  }
+
+  .fix-button{
+    float: left;
+    width: 55px;
+    background-color: rgb(208,2,27);
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    height: 20px;
+  }
+
+  .row-title{
+    float: left;
+    color: gray;
+    padding-left: 10px;
+  }
+
+  .aspiration-text{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 14px;
+  }
+
+  .goal-detail-link{
+    width: 10%;
+    height: 100%;
+    font-size: 30px;
+    color: rgb(180,180,180);
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .detail-container{
+    width: 100%;
+  }
+
+  .new-goal-container{
+    padding: 40px;
+  }
+  .new-goal-container img{
+    width: 75px;
+    height: 115px;
+  }
+
+  .span-title{
+    padding-left: 15px;
+    width: 42%;
+    overflow: auto;
+    display: flex;
+  }
+
+  /*
+  iPhone 6
+  */
+  @media (min-width: 375px){
+
+  }
+
+  /*
+  iPhone 6+
+  */
+  @media (min-width: 414px){
+
+  }
+
+  /*
+  Tablet
+  */
+  @media (min-width: 700px){
+    .text-over-image{
+      margin-top: 50px;
+    }
+
+    .field-container{
+      display: flex;
+    }
+
+    .text-container{
+      height: 100%;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 992px){
+    height: calc(100vh - 120px);
+    margin-top: 0px;
+
+    .text-over-image{
+      margin-top: 20px;
+    }
+
+    .aspiration-container {
+      height: 250px !important;
+      width: 250px !important;
+      display: flex;
+      overflow: initial;
+      border-radius: 20px;
+    }
+
+    .aspiration-container img {
+      float: left;
+      display:inherit;
+    }
+
+    .only-desktop{
+      display: inherit;
+      width: 80%;
+      padding: 20px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .page-header{
+      position:static;
+    }
+
+    .text-position {
+      padding-right:15px;
+      padding-left:15px;
+      padding: 0px;
+    }
+
+    .field-container{
+      width: 100%;
+      display: flex;
+      margin: 6px 0px 10px 0px;
+    }
+
+    .field-title{
+      width: 30%;
+      font-size: 20px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .field-value{
+      font-size: 14px;
+    }
+
+    .text-container{
+      width: calc(100% - 275px);
+      display: flex;
+      padding-left: 30px;
+      margin-top: 30px;
+    }
+
+    .aspiration-text{
+      font-size: 14px;
+    }
+
+    .detail-container{
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+    }
+    .span-title{
+      width: 60%;
+    }
+
+    .probability{
+      width: 40%;
+    }
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1200px){
+
+  }
+
+  /*
+  Desktop
+  */
+  @media (min-width: 1600px){
+
+  }
+}

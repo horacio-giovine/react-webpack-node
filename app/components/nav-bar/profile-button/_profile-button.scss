@@ -1,0 +1,93 @@
+#profile-button{
+  float: right;
+  display: inline;
+  width: 40px;
+  height: 50px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+#profile-button:hover{
+  background-color: rgba(255, 255, 255, 0.17);
+}
+
+#profile-button .nav-brand-menu-button img{
+  margin: 15px 15px 15px 15px;
+}
+
+#profile-button .profile-circle{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  top: 10px;
+}
+
+#profile-button .circle-active{
+  border: 2px solid;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  background-color: #4caf50;
+  position: absolute;
+  top: 29px;
+  margin-left: 17px;
+  border-color: #fff;
+}
+
+
+/*
+iPhone 6
+*/
+@media (min-width: 375px){
+
+}
+
+/*
+iPhone 6+
+*/
+@media (min-width: 414px){
+
+}
+
+/*
+Tablet
+*/
+@media (min-width: 700px){
+
+}
+
+/*
+Desktop
+*/
+@media (min-width: 992px){
+  #profile-button{
+    width: 55px;
+    height: 65px;
+
+    .profile-circle{
+      top: 18px;
+      margin-left: 7px;
+    }
+
+    .circle-active{
+      top: 37px;
+      margin-left: 26px;
+    }
+  }
+}
+
+/*
+Desktop
+*/
+@media (min-width: 1200px){
+
+}
+
+/*
+Desktop
+*/
+@media (min-width: 1600px){
+
+}
