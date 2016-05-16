@@ -4,11 +4,14 @@
 import passport from 'passport';
 import unsupportedMessage from '../db/unsupportedMessage';
 import { controllers, passport as passportConfig } from '../db';
+import routes from './routes/index'
 
 const usersController = controllers && controllers.users;
 const topicsController = controllers && controllers.topics;
 
-export default (app) => {
+export function initialRoutes(app){
+  routes(app, controllers);
+
   // user routes
   if (usersController) {
     app.post('/login', usersController.login);
@@ -43,23 +46,6 @@ export default (app) => {
     );
   }
 
-  if (passportConfig && passportConfig.salesforce) {
-    app.get('/auth/forcedotcom', passport.authenticate('forcedotcom', {
-      display: 'page', // valid values are: "page", "popup", "touch", "mobile"
-      prompt: '', // valid values are: "login", "consent", or "login consent"
-      login_hint: ''
-    }));
-
-    // this should match the callbackURL parameter above:
-    app.get('/auth/forcedotcom/callback',
-      passport.authenticate('forcedotcom', { failureRedirect: '/error' }),
-      (req, res) => {
-        console.log('res: ', res);
-        res.redirect('/');
-      }
-    );
-  }
-
   // topic routes
   if (topicsController) {
     app.get('/topic', topicsController.all);
@@ -69,4 +55,4 @@ export default (app) => {
   } else {
     console.warn(unsupportedMessage('topics routes'));
   }
-};
+}

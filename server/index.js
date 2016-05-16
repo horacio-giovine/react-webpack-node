@@ -4,7 +4,7 @@ import { ENV } from './config/appConfig';
 import { connect } from './db';
 import passportConfig from './config/passport';
 import expressConfig from './config/express';
-import routesConfig from './config/routes';
+import { initialRoutes } from './config/routes';
 import webpackDevConfig from '../webpack/webpack.config.dev-client';
 const App = require('../public/assets/server');
 const app = express();
@@ -41,7 +41,7 @@ expressConfig(app);
  *
  * Note: Some of these routes have passport and database model dependencies
  */
-routesConfig(app);
+initialRoutes(app);
 
 /*
  * This is where the magic happens. We take the locals data we have already
