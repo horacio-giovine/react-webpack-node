@@ -11,11 +11,9 @@ export default (app, controllers) => {
   // this should match the callbackURL parameter above:
   app.get('/auth/forcedotcom/callback',
     passport.authenticate('forcedotcom', { failureRedirect: '/error' }),
-    controllers.users.salesforceSignUp
-    // (req, res) => {
-    //   console.log('res: ', res);
-    //   (req, res);
-    //   res.redirect('/');
-    // }
+      //controllers.users.salesforceSignUp
+      (req, res) => {
+      res.redirect('/');
+    }
   );
 }
