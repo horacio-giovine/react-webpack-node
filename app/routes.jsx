@@ -6,7 +6,7 @@ import { Route, IndexRoute } from 'react-router';
 // import About from 'containers/About';
 // import LoginOrRegister from 'containers/LoginOrRegister';
 // import Dashboard from 'containers/Dashboard';
-import PageContainer from 'containers/PageContainer/pagecontainer';
+import PageContainer from 'containers/page-container/page-container';
 
 /*
  * @param {Redux Store}

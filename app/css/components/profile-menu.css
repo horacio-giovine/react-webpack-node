@@ -1,0 +1,81 @@
+#profile-menu{
+  position: fixed;
+  top: 48px;
+  border: solid 1px #DEDEDE;
+  width: 100%;
+  height: 105px;
+  right: 0px;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid #e4eaec;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+#profile-menu > a{
+  text-decoration: none;
+}
+
+#profile-menu .item{
+
+  display: block;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.57142857;
+  color: #76838f;
+  white-space: nowrap;
+  padding: 8px 15px;
+  border-radius: 3px;
+  border: solid white 5px;
+
+}
+
+#profile-menu .item:hover{
+  background-color: #f3f7f9;
+  color: #3f51b5 !important;
+}
+
+/*
+iPhone 6
+*/
+@media (min-width: 375px){
+
+}
+
+/*
+iPhone 6+
+*/
+@media (min-width: 414px){
+
+}
+
+/*
+Tablet
+*/
+@media (min-width: 700px){
+}
+
+  /*
+Desktop
+*/
+@media (min-width: 992px){
+  #profile-menu{
+    width: 160px;
+    top: 65px;
+  }
+}
+
+/*
+Desktop
+*/
+@media (min-width: 1280px){
+  #profile-menu{
+    width: 160px;
+    top: 65px;
+  }
+}

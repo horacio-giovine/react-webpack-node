@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import Dashboard from '../../layouts/Dashboard/dashboard'
+import Dashboard from 'layouts/dashboard/dashboard'
+import 'css/components/home-view'
 
 class HomeView extends Component {
   render () {

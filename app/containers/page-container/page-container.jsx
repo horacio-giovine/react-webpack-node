@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames';
-import 'css/components/pageContainer';
-
-//const cx = classNames.bind(styles);
+import 'css/vendor/normalize'
+import 'css/vendor/bootstrap/bootstrap.min'
+import 'css/components/page-container'
+import NavBar from 'components/nav-bar/nav-bar'
 
 export class PageContainer extends Component {
   render () {
     return (
       <div>
+        <NavBar />
         <div id='page-container'>
           <div className='content'>
-            hola
+            {this.props.children}
           </div>
         </div>
       </div>
@@ -18,8 +20,8 @@ export class PageContainer extends Component {
   }
 }
 
-// PageContainer.propTypes = {
-//   children: PropTypes.element
-// }
+PageContainer.propTypes = {
+  children: PropTypes.element
+}
 
 export default PageContainer
