@@ -7,18 +7,19 @@ import { passport as dbPassport } from '../db';
 import unsupportedMessage from '../db/unsupportedMessage';
 
 export default () => {
-  // Configure Passport authenticated session persistence.
-  //
-  // In order to restore authentication state across HTTP requests, Passport needs
-  // to serialize users into and deserialize users out of the session.  The
-  // typical implementation of this is as simple as supplying the user ID when
-  // serializing, and querying the user record by ID from the database when
-  // deserializing.
+
+  //In a typical web application, the credentials used to authenticate a user will only be
+  //transmitted during the login request. If authentication succeeds, a session will be
+  //established and maintained via a cookie set in the user's browser.
+  //Each subsequent request will not contain credentials, but rather the unique cookie
+  //that identifies the session. In order to support login sessions, Passport will
+  //serialize and deserialize user instances to and from the session.
 
   if (dbPassport && dbPassport.deserializeUser) {
     passport.serializeUser((user, done) => {
+      //Only save the SF user id to the session cookie
       console.log('serializeUser: ', user);
-      done(null, user.id);
+      done(null, user.profile.Id);
     });
 
     passport.deserializeUser(dbPassport.deserializeUser);

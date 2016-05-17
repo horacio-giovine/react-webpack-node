@@ -58,7 +58,13 @@ export function signUp(req, res, next) {
   });
 }
 
-export function salesforceSignUp(token, refreshToken, profile, done) {
+export function salesforceVerifyCallback(token, refreshToken, profile, done) {
+  //When Passport authenticates a request, it parses the credentials contained in the request.
+  //It then invokes the verify callback with those credentials as arguments, in this case
+  //username and password. If the credentials are valid, the verify callback invokes done to
+  //supply Passport with the user that authenticated.
+  //After this, the serializeUser method will run with the user object, and it will decide what to save to the session
+
   const user = new User({
     accessToken: token,
     refreshToken: refreshToken,
@@ -101,7 +107,7 @@ export default {
   login,
   logout,
   signUp,
-  salesforceSignUp
+  salesforceVerifyCallback
 };
 
 
