@@ -16,6 +16,10 @@ var _google = require('./passport/google');
 
 var _google2 = _interopRequireDefault(_google);
 
+var _salesforce = require('./passport/salesforce');
+
+var _salesforce2 = _interopRequireDefault(_salesforce);
+
 var _db = require('../db');
 
 var _unsupportedMessage = require('../db/unsupportedMessage');
@@ -23,6 +27,8 @@ var _unsupportedMessage = require('../db/unsupportedMessage');
 var _unsupportedMessage2 = _interopRequireDefault(_unsupportedMessage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* Initializing passport.js */
 
 exports.default = function () {
   // Configure Passport authenticated session persistence.
@@ -35,6 +41,7 @@ exports.default = function () {
 
   if (_db.passport && _db.passport.deserializeUser) {
     _passport2.default.serializeUser(function (user, done) {
+      console.log('serializeUser: ', user);
       done(null, user.id);
     });
 
@@ -46,4 +53,5 @@ exports.default = function () {
   // use the following strategies
   (0, _local2.default)(_passport2.default);
   (0, _google2.default)(_passport2.default);
-}; /* Initializing passport.js */
+  (0, _salesforce2.default)(_passport2.default);
+};

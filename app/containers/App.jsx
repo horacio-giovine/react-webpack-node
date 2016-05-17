@@ -3,8 +3,10 @@ import Navigation from 'containers/Navigation';
 import Message from 'containers/Message';
 import classNames from 'classnames/bind';
 import styles from 'css/main';
+import styles2 from 'css/test';
 
 const cx = classNames.bind(styles);
+const cx2 = classNames.bind(styles2);
 
 
 /*
@@ -22,7 +24,11 @@ const App = ({children}) => {
       <Navigation />
       <Message />
         {children}
+      <div className={cx2('test')}>
+        TEST
+      </div>
     </div>
+
   );
 };
 

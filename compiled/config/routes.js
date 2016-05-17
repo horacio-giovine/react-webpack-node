@@ -52,6 +52,20 @@ exports.default = function (app) {
     }));
   }
 
+  if (_db.passport && _db.passport.salesforce) {
+    app.get('/auth/forcedotcom', _passport2.default.authenticate('forcedotcom', {
+      display: 'page', // valid values are: "page", "popup", "touch", "mobile"
+      prompt: '', // valid values are: "login", "consent", or "login consent"
+      login_hint: ''
+    }));
+
+    // this should match the callbackURL parameter above:
+    app.get('/auth/forcedotcom/callback', _passport2.default.authenticate('forcedotcom', { failureRedirect: '/error' }), function (req, res) {
+      console.log('res: ', res);
+      res.redirect('/');
+    });
+  }
+
   // topic routes
   if (topicsController) {
     app.get('/topic', topicsController.all);
