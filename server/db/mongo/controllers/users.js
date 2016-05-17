@@ -77,14 +77,14 @@ export function salesforceSignUp(token, refreshToken, profile, done) {
   });
 
   User.findOne({ 'profile.Id': profile._raw.user_id }, (findErr, existingUser) => {
-    console.log('find user with profile id = ' + profile.Id);
+    console.log('find user with profile id = ' + profile._raw.user_id);
     if (existingUser) {
       console.log('the user exists');
       return done(null, existingUser);
     }else{
       console.log('the user does NOT exist');
       user.save((saveErr) => {
-        console.log('we tried to save the save the user');
+        console.log('we tried to save the user');
         if (saveErr){
           console.log('save ERROR');
           return done(saveErr, null);
