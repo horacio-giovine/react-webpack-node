@@ -4,7 +4,8 @@ export default (token, refreshToken, profile, done) => {
   console.log('token: ', token);
   console.log('refreshToken: ', refreshToken);
   console.log('profile: ', profile);
-  console.log('controllers: ', controllers);
 
-  return done(null, profile);
+  return controllers.users.salesforceSignUp(token, refreshToken, profile, done);
+
+  //return done(null, profile);
 };

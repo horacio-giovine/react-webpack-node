@@ -24,13 +24,8 @@ const UserSchema = new mongoose.Schema({
     Alias: { type: String, unique: true, default: '' },
     CommunityNickname: String,
     IsActive: Boolean,
-    TimeZoneSidKey: { type: String },
     LocaleSidKey: String,
-    EmailEncodingKey: String,
-    ProfileId: String,
-    LanguageLocaleKey: String,
-    UserPermissionsMobileUser: Boolean,
-    UserPreferencesDisableAutoSubForFeeds: Boolean
+    LanguageLocaleKey: String
   }
 });
 
