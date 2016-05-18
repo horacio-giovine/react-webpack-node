@@ -1,0 +1,188 @@
+#goal-detail {
+  background-color: white;
+  width: 100%;
+  height: calc(100vh - 120px);
+  color: #5b5b5b;
+  overflow: auto;
+}
+#goal-detail header {
+  position: fixed;
+  width: 100%;
+  top: 50px;
+  left: 0;
+}
+#goal-detail .position-static {
+  position: static;
+}
+#goal-detail .detail-section {
+  margin-top: 77px;
+  overflow: auto;
+  margin-right: 0px;
+}
+#goal-detail .detail-section .title {
+  font-size: 11px;
+}
+#goal-detail .goal-image img {
+  width: 50px;
+  height: 50px;
+}
+#goal-detail .bold {
+  font-weight: bold;
+}
+#goal-detail .no-padding-left {
+  padding-left: 0px;
+}
+#goal-detail .no-padding-right {
+  padding-right: 0px;
+}
+#goal-detail .no-margin-left {
+  margin-left: 0px;
+}
+#goal-detail .padding-bottom-20 {
+  padding-bottom: 20px;
+}
+#goal-detail .padding-top-20 {
+  padding-top: 20px;
+}
+#goal-detail .field-title {
+  padding-right: 10px;
+  font-weight: bold;
+}
+#goal-detail .light-color {
+  color: #757575;
+  margin-bottom: 15px;
+}
+#goal-detail .portfolio-button {
+  float: left;
+  width: 100px;
+  color: white;
+  background-color: #4a90e2;
+  border-radius: 20px;
+  text-align: center;
+}
+#goal-detail .details {
+  padding: 80px 15px 15px 15px;
+}
+#goal-detail .details .goal-card {
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+}
+#goal-detail .details .goal-card img {
+  height: 80px;
+}
+#goal-detail .details .goal-description {
+  width: 210px;
+  padding-top: 15px;
+  padding-left: 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+#goal-detail .details .goal-description h1 {
+  font-size: 14px;
+  margin: 0px 0px 5px 0px;
+}
+#goal-detail .details .goal-description h2 {
+  font-size: 18px;
+  margin: 0px 0px 0px 0px;
+}
+#goal-detail .details .goal-overview .title {
+  width: 100%;
+  font-size: 11px;
+}
+#goal-detail .details .goal-overview .column {
+  width: 100%;
+}
+#goal-detail .details .goal-overview .item {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#goal-detail .details .goal-overview .item .name {
+  font-weight: bold;
+  width: 125px;
+  display: inline-block;
+}
+#goal-detail .details .goal-overview .item .value .circle {
+  display: inline-block;
+  background-color: #66BC0B;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+#goal-detail .chart {
+  padding: 10px 15px 10px 15px;
+}
+#goal-detail .chart p {
+  margin-bottom: 10px;
+}
+#goal-detail .chart img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#goal-detail .social {
+  border-top: 1px solid #f2f2f2;
+  padding: 10px 15px 10px 15px;
+  background-color: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+#goal-detail .social .media-option .text {
+  float: left;
+  padding-top: 8px;
+  color: grey;
+  font-size: 15px;
+}
+#goal-detail .social .media-option .icons > img {
+  margin-left: 15px;
+}
+#goal-detail .social .media-option .media-icon {
+  height: 30px;
+}
+@media (min-width: 700px) {
+  #goal-detail .details {
+    padding: 110px 15px 15px;
+  }
+  #goal-detail .detail-section {
+    margin-top: 125px;
+  }
+  #goal-detail .goal-image img {
+    width: 100px;
+    height: 100px;
+  }
+  #goal-detail .detail-section .title {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) {
+  #goal-detail .goal-image img {
+    margin-left: 25px;
+    width: 100px;
+    height: 100px;
+  }
+  #goal-detail .detail-section {
+    margin-top: 66px;
+  }
+  #goal-detail .detail-section .title {
+    font-size: 14px;
+  }
+  #goal-detail .detail-section .description {
+    font-size: 18px;
+  }
+  #goal-detail header {
+    position: static;
+  }
+  #goal-detail .details {
+    padding: 15px 15px 15px;
+  }
+  #goal-detail .social {
+    position: static;
+  }
+  #goal-detail .chart-data {
+    padding-top: 30px;
+  }
+}

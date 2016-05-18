@@ -1,0 +1,117 @@
+#vision-container {
+  width: 100%;
+  margin-top: 66px;
+  margin-bottom: 53px;
+  background-color: #fff;
+  overflow: auto;
+}
+#vision-container #addVisionCard {
+  margin: 10px 10px 0px 0px;
+}
+#vision-container > .header {
+  width: 100%;
+  position: fixed;
+  top: 50px;
+}
+#vision-container .position-static {
+  position: static;
+}
+#vision-container .no-padding-left {
+  padding-left: 0px;
+}
+#vision-container > .content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+#vision-container > .content > a {
+  text-decoration: none;
+}
+#vision-container > .content .column {
+  display: inline-block;
+  padding-bottom: 15px;
+}
+#vision-container > .content .column > a {
+  text-decoration: none;
+}
+#vision-container > .social {
+  background-color: white;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px 15px 10px 15px;
+  height: 53px;
+  position: fixed;
+  bottom: 0px;
+  display: block;
+}
+#vision-container > .social .media-option .text {
+  float: left;
+  padding-top: 8px;
+  color: grey;
+  font-size: 15px;
+}
+#vision-container > .social .media-option .icons {
+  color: grey;
+  font-size: 15px;
+}
+#vision-container > .social .media-option .icons > img {
+  margin-left: 15px;
+}
+#vision-container > .social .media-option .media-icon {
+  height: 30px;
+}
+#vision-container > .social .media-option .printer-icon {
+  float: right;
+}
+#vision-container > .social .media-option .printer-icon img {
+  height: 30px;
+  padding-left: 6px;
+}
+#vision-container #addVisionCard {
+  margin: 10px 10px 0 10px;
+}
+
+@media (min-width: 600px) {
+  #vision-container #addVisionCard {
+    margin: 10px 25px 0px 8px;
+  }
+}
+
+@media (min-width: 700px) {
+  #vision-container {
+    height: calc(100vh - 120px);
+    margin-top: 96px;
+  }
+  #vision-container #addVisionCard {
+    margin: 10px 10px 0 -10px;
+  }
+}
+@media (min-width: 992px) {
+  #vision-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  #vision-container > .content {
+    margin-left: 10px;
+  }
+  #vision-container > .social {
+    position: static;
+  }
+  #vision-container > .header {
+    position: static;
+  }
+  #vision-container #addVisionCard {
+    margin: 10px 10px 0 -5px;
+  }
+}
+@media (min-width: 1200px) {
+  #vision-container #addVisionCard {
+    margin: 10px 10px 0px 8px;
+  }
+}
+@media (min-width: 1600px) {
+  #vision-container #addVisionCard {
+    margin: 10px 10px 0px -10px;
+  }
+}

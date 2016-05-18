@@ -111,7 +111,11 @@ class NavBar extends Component {
             profileClass={this.state.profileClass}
           />
         </div>
-
+        <div tabIndex='-1' onBlur={this.handleBlur}>
+          <Dashboard
+            showDashboard={this.state.showDashboard}
+          />
+        </div>
       </div>
     )
   }

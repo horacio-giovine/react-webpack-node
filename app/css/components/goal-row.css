@@ -1,0 +1,182 @@
+#goal-row {
+  color: grey;
+  font-weight: 300;
+  border-bottom: 1px solid #757575;
+  padding: 20px;
+  line-height: 20px;
+  overflow: auto;
+}
+#goal-row img {
+  width: 55px;
+  height: 55px;
+}
+#goal-row .goal-span, #goal-row .goal-span-green, #goal-row .goal-span-red {
+  float: left;
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+#goal-row .goal-span-green {
+  background-color: #78c226;
+}
+#goal-row .goal-span-red {
+  background-color: #d0021b;
+}
+#goal-row .probability-section {
+  display: flex;
+  width: 100%;
+}
+#goal-row .probability, #goal-row .probability-green, #goal-row .probability-red {
+  font-size: 14px;
+  display: flex;
+  width: 100%;
+}
+#goal-row .probability-green {
+  color: #78c226;
+}
+#goal-row .probability-red {
+  color: #d0021b;
+  display: inline-flex;
+}
+#goal-row .fix-button {
+  font-size: 11px !important;
+  float: left;
+  width: 50px;
+  background-color: #d0021b;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  height: 20px;
+  padding: 2px;
+}
+#goal-row .title {
+  font-size: 10px;
+}
+#goal-row .desc {
+  margin-top: 0px;
+}
+#goal-row .fields {
+  margin-top: 15px;
+}
+#goal-row .fields-section, #goal-row .long-field-section {
+  display: flex;
+  flex-direction: row;
+  font-size: 11px;
+  width: 100%;
+}
+#goal-row .field-title {
+  font-weight: bold;
+  font-size: 11px;
+  color: grey;
+  display: flex;
+  width: 60%;
+}
+#goal-row .field-value {
+  font-size: 11px;
+  color: grey;
+  display: flex;
+  width: 40%;
+}
+#goal-row .goal-detail-link {
+  width: 30px;
+  font-size: 30px;
+  color: #b4b4b4;
+  display: flex;
+  align-self: baseline;
+  align-items: center;
+  justify-content: center;
+}
+#goal-row .image-container {
+  width: 25%;
+  display: inline-block;
+  float: none;
+  height: auto;
+}
+#goal-row .title-link {
+  width: 100%;
+  display: flex;
+}
+#goal-row .title-section {
+  display: inline-block;
+  width: calc(100% - 30px);
+}
+#goal-row .image-title {
+  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  float: right;
+  width: 75%;
+}
+@media (min-width: 700px) {
+  #goal-row .fields-section, #goal-row .long-field-section {
+    display: inline-block;
+  }
+  #goal-row .long-fields-section {
+    padding-left: 0px;
+    margin-right: 10px;
+  }
+  #goal-row .field-title {
+    display: inline-block;
+    font-size: 14px;
+    padding-right: 10px;
+    width: auto;
+  }
+  #goal-row .field-value {
+    display: inline-block;
+    font-size: 14px;
+    width: auto;
+  }
+  #goal-row .fix-button {
+    display: inline-block;
+    float: none;
+    padding: 0px;
+    font-size: 14px !important;
+    width: 40px;
+  }
+  #goal-row img {
+    margin-left: 5px;
+    margin-top: 0px;
+    width: 100px;
+    height: 100px;
+  }
+  #goal-row .image-container {
+    height: 100%;
+    float: left;
+    width: 20%;
+  }
+  #goal-row .image-title {
+    float: none;
+    display: flex;
+    width: 80%;
+    margin-top: 8px;
+  }
+  #goal-row .fields {
+    margin-top: 0px;
+  }
+  #goal-row .fields-section, #goal-row .long-field-section {
+    font-size: 14px;
+    padding-left: 0px;
+    width: auto;
+    display: inline-block;
+  }
+  #goal-row .desc {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+  #goal-row .title {
+    font-size: 20px;
+  }
+  #goal-row .title-section {
+    margin-bottom: 30px;
+    padding-left: 0px;
+  }
+  #goal-row .probability-section {
+    margin-left: 30px;
+  }
+}
