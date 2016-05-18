@@ -9,6 +9,7 @@ import AspirationDetails from 'views/aspiration-details/aspiration-details'
 import GoalDetail from 'views/goal-detail/goal-detail'
 import Goals from 'views/goals/goals'
 
+import LoginOrRegister from 'containers/LoginOrRegister'
 /*
  * @param {Redux Store}
  * We require store as an argument here because we wish to get
@@ -44,6 +45,7 @@ export default (store) => {
         <Route path='aspiration-details' component={AspirationDetails} />
         <Route path='goal-detail' component={GoalDetail} />
         <Route path='goals' component={Goals} />
+        <Route path='login' component={LoginOrRegister} />
       </Route>
       <Route path='profile' component={Profile} />
     </Route>

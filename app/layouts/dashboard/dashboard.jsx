@@ -28,6 +28,16 @@ class Dashboard extends Component {
   render () {
     return (
       <div id='dashboard' className={this.props.showDashboard}>
+        <Link to='login'>
+          <div className='menu-item'>
+            <div className='menu-content'>
+              <div className='menu-text'>Login</div>
+            </div>
+          </div>
+        </Link>
+
+        <div className='menu-division'/>
+
         <Link to='vision'>
           <div className='menu-item'>
             <div className='menu-content'>

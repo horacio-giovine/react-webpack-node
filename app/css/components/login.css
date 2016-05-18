@@ -1,5 +1,3 @@
-@value global-radius, font-large, font-medium, font-small from '../settings';
-@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from '../common/colors.css';
 
 .login {
   width: 420px;
@@ -9,10 +7,8 @@
   border-radius: global-radius;
 }
 
-  .waiting {
-    .loading {
-      display: block;
-    }
+  .waiting .loading {
+    display: block;
   }
 
   .alternative {
@@ -48,14 +44,19 @@
   .header {}
 
   .heading {
-    composes: subheading from '../common/typography';
-
     padding: 16px 12px;
     text-align: center;
   }
 
   .input {
-    composes: input from '../common/input';
+    padding: 0.75rem 1rem;
+    border: 2px solid color-loblolly;
+    border-radius: 4px;
+    width: 100%;
+
+    background-color: color-white;
+    color: color-limed-spruce;
+    margin-bottom: 0.75rem;
   }
 
   .message {
@@ -64,10 +65,27 @@
   }
 
   .button {
-    composes: greenButton from '../common/button';
+    display: block;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+
+    text-decoration: none;
+    text-align: center;
+
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+
+    cursor: pointer;
+    transition: 0.1s background-color ease;
+    background: color-salem;
+    border-color: color-salem;
+
+    color: color-white;
+
+
   }
 
   .hint {
-    composes: small from '../common/typography';
-    color: color-bombay;
+    
   }
