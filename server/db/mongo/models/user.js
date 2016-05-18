@@ -13,8 +13,9 @@ import mongoose from 'mongoose';
  */
 
 const UserSchema = new mongoose.Schema({
-  accessToken: String,
-  refreshToken: String,
+  accessToken: String,//
+  refreshToken: String,//
+  //instanceUrl
   profile: {
     Id: String,
     Username: String,
