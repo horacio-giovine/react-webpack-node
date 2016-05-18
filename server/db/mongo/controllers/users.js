@@ -65,6 +65,9 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   //supply Passport with the user that authenticated.
   //After this, the serializeUser method will run with the user object, and it will decide what to save to the session
 
+
+  console.log('profile: ', profile);
+
   const user = new User({
     accessToken: token,
     refreshToken: refreshToken,
