@@ -22,8 +22,8 @@ export const salesforce = {
   clientId: process.env.SF_CLIENTID || '3MVG9_7ddP9KqTzeZdfdZrvmKuItHh6v4ulvu3ZA1CCTx3ZVK0mWo4nRjVp6hDw5u2F.0xAwKApIs.bWZlZL2',
   clientSecret: process.env.SF_CLIENT_SECRET || '3998960731306368083',
   redirectUri: process.env.SF_REDIRECT_URI || 'https://brightplan-oktana-horacio.herokuapp.com/auth/forcedotcom/callback',
-  authorizationURL: process.env.SF_AUTHORIZE_URL || 'https://bpsbox1-brightplan.cs10.force.com/BrightPlanApi/services/oauth2/authorize',
-  tokenURL: process.env.SF_TOKEN_URL || 'https://bpsbox1-brightplan.cs10.force.com/BrightPlanApi/services/oauth2/token'
+  authorizationURL: process.env.SF_AUTHORIZE_URL || 'https://bpsbox1-brightplan.cs10.force.com/BrightPlanWeb/services/oauth2/authorize',
+  tokenURL: process.env.SF_TOKEN_URL || 'https://bpsbox1-brightplan.cs10.force.com/BrightPlanWeb/services/oauth2/token'
 };
 
 
