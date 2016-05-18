@@ -71,6 +71,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   const user = new User({
     accessToken: token,
     refreshToken: refreshToken,
+    instanceUrl: profile._raw.urls.profile.split('/')[2].split('.')[0],//'https://cs10.salesforce.com/005J0000005owb3IAA'.split('/')[2].split('.')[0] -->  cs10
     profile: {
       Id: profile._raw.user_id,
       Username: profile._raw.username,

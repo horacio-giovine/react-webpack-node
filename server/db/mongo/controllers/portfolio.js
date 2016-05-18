@@ -3,9 +3,9 @@
 import axios from 'axios'
 
 export function getPorfolios(req, res, next) {
-  console.log(req);
-  console.log(res);
-  console.log(next);
+  console.log('req.user: ', req.user);
+  //console.log(res);
+  //console.log(next);
 
 }
 
