@@ -6,6 +6,12 @@ import salesforce from './passport/salesforce';
 import { passport as dbPassport } from '../db';
 import unsupportedMessage from '../db/unsupportedMessage';
 
+///////////
+///
+/// use this project as guide https://github.com/sahat/hackathon-starter
+///
+///////////
+
 export default () => {
 
   //In a typical web application, the credentials used to authenticate a user will only be
@@ -31,4 +37,15 @@ export default () => {
   local(passport);
   google(passport);
   salesforce(passport);
+};
+
+
+/**
+ * Login Required middleware.
+ */
+export function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/');
 };
