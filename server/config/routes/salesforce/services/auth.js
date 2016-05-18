@@ -16,4 +16,11 @@ export default (app, controllers) => {
       res.redirect('/');
     }
   );
+
+  app.post('/logout',
+    (req, res) => {
+      req.logout();
+      res.redirect('/login');
+    }
+  );
 }

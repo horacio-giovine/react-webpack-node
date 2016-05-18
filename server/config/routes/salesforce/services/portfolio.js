@@ -3,7 +3,6 @@ import { isAuthenticated } from '../../../passport'
 export default (app, controllers) => {
   app.route('/portfolio')
     .get(isAuthenticated, function(req, res) {
-      console.log('user in request: ', req.user);
       controllers.portfolio.getPorfolios(req, res);
       //res.end();
     });
