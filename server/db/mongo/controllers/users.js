@@ -109,12 +109,13 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 }
 
 export function getUsers(req, res, next) {
+  console.log('req.user: ', req.user);
   axios.get(
     {
       method: 'get',
       url: 'https://cs10.salesforce.com/services/apexrest/v1/user',
       headers: {
-        'Authorization': 'Bearer ' + access_token
+        'Authorization': 'Bearer ' + req.user.accessToken
       }
     }
   )
