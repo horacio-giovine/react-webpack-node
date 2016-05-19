@@ -1,4 +1,4 @@
-import AspirationCard from './AspirationCard'
+import AspirationCard from 'components/vision/aspiration-card/aspiration-card'
 import {mount, render, shallow} from 'enzyme'
 import React from 'react'
 import assert from 'assert'

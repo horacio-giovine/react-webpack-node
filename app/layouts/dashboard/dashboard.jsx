@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import 'css/components/dashboard'
+import { logOut } from 'actions/users'
 
 import icon_vision from 'images/menu_icons/icon_vision.png'
 import icon_goals from 'images/menu_icons/icon_goals.png'
@@ -28,13 +31,23 @@ class Dashboard extends Component {
   render () {
     return (
       <div id='dashboard' className={this.props.showDashboard}>
-        <Link to='login'>
-          <div className='menu-item'>
-            <div className='menu-content'>
-              <div className='menu-text'>Login</div>
+        { this.props.user.authenticated ? (
+          <Link onClick={this.props.logout} to='/'>
+            <div className='menu-item'>
+              <div className='menu-content'>
+                <div className='menu-text'>Logout</div>
+              </div>
             </div>
-          </div>
-        </Link>
+          </Link>
+        ) : (
+          <a href="/auth/forcedotcom">
+            <div className='menu-item'>
+              <div className='menu-content'>
+                <div className='menu-text'>Login</div>
+              </div>
+            </div>
+          </a>
+        )}
 
         <div className='menu-division'/>
 
@@ -129,7 +142,18 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  showDashboard: PropTypes.string
+  showDashboard: PropTypes.string,
+  user: PropTypes.object
 }
 
-export default Dashboard
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
+function mapDispatchToProps(dispatch){
+ return bindActionCreators({ logOut }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

@@ -1,4 +1,4 @@
-import ProfileMenu from './profileMenu'
+import ProfileMenu from 'components/nav-bar/profile-menu/profile-menu'
 import {mount, render, shallow} from 'enzyme'
 import React from 'react'
 import assert from 'assert'
