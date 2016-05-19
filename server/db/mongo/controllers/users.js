@@ -1,6 +1,7 @@
 import User from '../models/user';
 import passport from 'passport';
 import axios from 'axios'
+import { salesforce as salesforceSecrets } from '../../../config/secrets'
 
 /**
  * POST /login
@@ -109,7 +110,6 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 }
 
 export function getUsers(req, res, next) {
-  console.log('req.user: ', req.user);
   axios(
     {
       method: 'get',
@@ -121,6 +121,34 @@ export function getUsers(req, res, next) {
   )
   .then(function (response) {
     console.log('users: ', response);
+    res.json(response);
+  })
+  .catch(function (response) {
+    if(response.status === 401){
+      axios.get('/api/getNewToken')
+      .then(function (response) {
+        console.log('users: ', response);
+        res.json(response);
+      })
+    }
+  });
+}
+
+export function getNewToken(req, res, next) {
+  axios(
+    {
+      method: 'post',
+      url: salesforceSecrets.tokenURL,
+      params: {
+        grant_type: 'refresh_token',
+        client_id: salesforceSecrets.clientId,
+        client_secret: salesforceSecrets.clientSecret,
+        refresh_token: req.user.refreshToken
+      }
+    }
+  )
+  .then(function (response) {
+    console.log('new token: ', response);
     res.json(response);
   })
   .catch(function (response) {
