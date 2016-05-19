@@ -1,5 +1,5 @@
 import passport from 'passport';
-//import { controllers, passport as passportConfig } from '../db';
+import { isAuthenticated } from '../../../passport'
 
 export default (app, controllers) => {
   app.get('/auth/forcedotcom', passport.authenticate('forcedotcom', {
