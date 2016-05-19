@@ -110,6 +110,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 }
 
 export function getUsers(req, res, next) {
+  console.log('========================::::::::: ', req.user);
   axios(
     {
       method: 'get',
