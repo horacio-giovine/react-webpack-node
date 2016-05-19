@@ -34,6 +34,7 @@ module.exports = function(config) {
     browserNoActivityTimeout: 30000,
 
     webpack: {
+      devtool: 'inline-source-map',
       context: path.join(__dirname, "app"),
       module: {
         loaders: [
@@ -54,11 +55,7 @@ module.exports = function(config) {
             exclude: path.join(__dirname, '/node_modules/')
           },
           { test: /\.json$/, loader: "json-loader" },
-          { test: /\.css$/, loader: "null-loader" },
-          {
-            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-            loader: 'file'
-          }
+          { test: /\.css$/, loader: "null-loader" }
         ],
       },
       resolve: {

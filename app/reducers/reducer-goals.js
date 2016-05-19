@@ -44,10 +44,11 @@ const defaultState = [
 ]
 
 export default function (state = defaultState, action) {
-  console.log('REDUCER: ', action.payload)
   switch(action.type){
     case CREATE_GOAL:
-      return [...state, action.payload]
+      console.log('REDUCER: ', action.type)
+      console.log('REDUCER: ', action.payload)
+      return [ ...state, action.payload]
   }
   return state
 }

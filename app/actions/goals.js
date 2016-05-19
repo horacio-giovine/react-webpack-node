@@ -4,6 +4,6 @@ export function createGoal(goal){
   console.log('ACTION: ', goals)
   return {
     type: CREATE_GOAL,
-    payload: goal
+    payload: goals
   }
 }
