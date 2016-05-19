@@ -17,7 +17,7 @@ export default (app, controllers) => {
     }
   );
 
-  app.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken', isAuthenticated, function(req, res, next) {
+  app.get('/api/getNewToken', isAuthenticated, function(req, res, next) {
     controllers.users.getNewToken(req, res, next);
   });
 
