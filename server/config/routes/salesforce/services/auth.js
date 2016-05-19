@@ -17,6 +17,10 @@ export default (app, controllers) => {
     }
   );
 
+  app.get('/api/getNewToken', isAuthenticated, function(req, res, next) {
+    controllers.users.getNewToken(req, res, next);
+  });
+
   app.post('/logout',
     (req, res) => {
       req.logout();

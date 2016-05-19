@@ -124,17 +124,19 @@ export function getUsers(req, res, next) {
     res.json(response);
   })
   .catch(function (response) {
-    if(response.status === 401){
+    console.log('ERROR get getNewToken-->>>>', response.status);
+    //if(response.status === 401){
       axios.get('/api/getNewToken')
       .then(function (response) {
         console.log('users: ', response);
         res.json(response);
       })
-    }
+    //}
   });
 }
 
 export function getNewToken(req, res, next) {
+  console.log('IN getNewToken');
   axios(
     {
       method: 'post',
@@ -162,5 +164,6 @@ export default {
   logout,
   signUp,
   salesforceVerifyCallback,
-  getUsers
+  getUsers,
+  getNewToken
 };
