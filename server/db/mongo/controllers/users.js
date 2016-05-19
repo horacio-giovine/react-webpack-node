@@ -146,6 +146,9 @@ export function getNewToken(req, res, next) {
         client_id: salesforceSecrets.clientId,
         client_secret: salesforceSecrets.clientSecret,
         refresh_token: req.user.refreshToken
+      },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     }
   )
