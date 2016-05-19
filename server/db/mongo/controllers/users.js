@@ -1,5 +1,6 @@
 import User from '../models/user';
 import passport from 'passport';
+import axios from 'axios'
 
 /**
  * POST /login
@@ -107,11 +108,32 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   });
 }
 
+export function getUsers(req, res, next) {
+  axios.get(
+    {
+      method: 'get',
+      url: 'https://cs10.salesforce.com/services/apexrest/v1/user',
+      headers: {
+        'Authorization': 'Bearer ' + access_token
+      }
+    }
+  )
+  .then(function (response) {
+    console.log('users: ', response);
+    res.json(response);
+  })
+  .catch(function (response) {
+    console.log('ERROR: ', response);
+  });
+}
+
+
 export default {
   login,
   logout,
   signUp,
-  salesforceVerifyCallback
+  salesforceVerifyCallback,
+  getUsers
 };
 
 
