@@ -110,7 +110,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 
 export function getUsers(req, res, next) {
   console.log('req.user: ', req.user);
-  axios.get(
+  axios(
     {
       method: 'get',
       url: 'https://cs10.salesforce.com/services/apexrest/v1/user',
@@ -136,74 +136,3 @@ export default {
   salesforceVerifyCallback,
   getUsers
 };
-
-
-
-/*
-
-{
-  _raw: {
-    id: 'https://test.salesforce.com/id/00DJ0000003LTKTMA4/00536000000erTFAAY',
-    asserted_user: true,
-    user_id: '00536000000erTFAAY',
-    organization_id: '00DJ0000003LTKTMA4',
-    username: 'tmichels@brightplan.com.bpsbox1',
-    nick_name: 'tmichels',
-    display_name: 'Thys Michels',
-    email: 'tmichels@brightplan.com',
-    email_verified: true,
-    first_name: 'Thys',
-    last_name: 'Michels',
-    timezone: 'America/Los_Angeles',
-    photos: {
-      picture: 'https://c.cs10.content.force.com/profilephoto/005/F',
-      thumbnail: 'https://c.cs10.content.force.com/profilephoto/005/T'
-    },
-    addr_street: null,
-    addr_city: null,
-    addr_state: null,
-    addr_country: null,
-    addr_zip: null,
-    mobile_phone: '+1 4084213711',
-    mobile_phone_verified: true,
-    status: {
-     created_date: null, body: null
-    },
-    urls: {
-      enterprise: 'https://cs10.salesforce.com/services/Soap/c/{version}/00DJ0000003LTKT',
-      metadata: 'https://cs10.salesforce.com/services/Soap/m/{version}/00DJ0000003LTKT',
-      partner: 'https://cs10.salesforce.com/services/Soap/u/{version}/00DJ0000003LTKT',
-      rest: 'https://cs10.salesforce.com/services/data/v{version}/',
-      sobjects: 'https://cs10.salesforce.com/services/data/v{version}/sobjects/',
-      search: 'https://cs10.salesforce.com/services/data/v{version}/search/',
-      query: 'https://cs10.salesforce.com/services/data/v{version}/query/',
-      recent: 'https://cs10.salesforce.com/services/data/v{version}/recent/',
-      profile: 'https://cs10.salesforce.com/00536000000erTFAAY',
-      feeds: 'https://cs10.salesforce.com/services/data/v{version}/chatter/feeds',
-      groups: 'https://cs10.salesforce.com/services/data/v{version}/chatter/groups',
-      users: 'https://cs10.salesforce.com/services/data/v{version}/chatter/users',
-      feed_items: 'https://cs10.salesforce.com/services/data/v{version}/chatter/feed-items'
-    },
-    active: true,
-    user_type: 'STANDARD',
-    language: 'en_US',
-    locale: 'en_US',
-    utcOffset: -28800000,
-    last_modified_date: '2016-03-15T20:48:47.000+0000',
-    is_app_installed: true,
-    _photo: null
-  },
-
-  provider: 'forcedotcom',
-  id: '00DJ0000003LTKTMA4/00536000000erTFAAY',
-  displayName: 'Thys Michels',
-  name: {
-    familyName: 'Michels', givenName: 'Thys'
-  },
-  emails: [
-    {
-     value: 'tmichels@brightplan.com'
-    }
-  ]
-}
-*/
