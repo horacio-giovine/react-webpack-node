@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from 'containers/App';
-import Vote from 'containers/Vote';
-import About from 'containers/About';
-import LoginOrRegister from 'containers/LoginOrRegister';
-import Dashboard from 'containers/Dashboard';
+import PageContainer from 'containers/page-container/page-container';
+import HomeView from 'containers/home-view/home-view'
+import Profile from 'views/profile/profile'
+import Vision from 'views/vision/vision'
+import AspirationDetails from 'views/aspiration-details/aspiration-details'
+import GoalDetail from 'views/goal-detail/goal-detail'
+import Goals from 'views/goals/goals'
 
+import LoginOrRegister from 'containers/LoginOrRegister'
 /*
  * @param {Redux Store}
  * We require store as an argument here because we wish to get
@@ -34,11 +37,23 @@ export default (store) => {
     callback();
   };
   return (
-    <Route path="/" component={App}>
-      <IndexRoute component={Vote} />
-      <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
-      <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
-      <Route path="about" component={About} />
+    <Route path='/' component={PageContainer}>
+      <Route component={HomeView}>
+        <IndexRoute component={Vision}/>
+        <Route path='vision' component={Vision} />
+        <Route path='aspiration-details' component={AspirationDetails} />
+        <Route path='goal-detail' component={GoalDetail} />
+        <Route path='goals' component={Goals} />
+        <Route path='login' component={LoginOrRegister} />
+      </Route>
+      <Route path='profile' component={Profile} />
     </Route>
   );
 };
+
+// <Route path='Aspirations' component={Vision} />
+// <Route path='goal-detail' component={GoalDetail} />
+// <Route path='Goals' component={Goals} />
+// <Route path='Portfolio' component={Portfolio} />
+// <Route path='Transfers' component={Transfers} />
+// <Route path='Performance' component={Performance} />

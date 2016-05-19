@@ -1,0 +1,166 @@
+#nav-bar {
+  background-color: #151D31;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+#nav-bar #dashboard {
+  display: initial;
+}
+#nav-bar .burger {
+  position: fixed;
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  margin-left: 8px;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+}
+#nav-bar .messages {
+  right: 0px;
+}
+#nav-bar .notifications {
+  right: 0px;
+}
+#nav-bar .navBrandContainer img {
+  width: 100px;
+  padding-top: 18px;
+  display: block;
+}
+#nav-bar .button-container {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+#nav-bar .navBrandContainer {
+  position: relative;
+  width: 100px;
+  margin: 0px auto 0px auto;
+}
+#nav-bar .navBrandContainer a {
+  display: inline-block;
+}
+#nav-bar .navBrandContainer a img {
+  width: 100px;
+  padding-top: 12px;
+}
+#nav-bar .navBrandMenu {
+  position: fixed;
+  width: 140px;
+  height: 50px;
+  top: 0%;
+  right: 0%;
+}
+#nav-bar .nav-brand-menu-button {
+  float: right;
+  display: inline;
+  width: 30px;
+  height: 50px;
+  padding-top: 14px;
+}
+#nav-bar .nav-brand-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.17);
+}
+#nav-bar .nav-brand-menu-button img {
+  margin: 0px 0px 0px 8px;
+}
+#nav-bar .nav-brand-menu-circle-number {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  position: absolute;
+  top: 5px;
+  margin-left: 15px;
+}
+#nav-bar .nav-brand-menu-number {
+  text-align: center;
+  line-height: initial;
+  border-radius: 50px;
+  color: white;
+}
+@media (min-width: 375px) {
+  #nav-bar .navBrandContainer img {
+    width: 100px;
+    padding-top: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 414px) {
+  #nav-bar .navBrandContainer img {
+    width: 100px;
+    padding-top: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 700px) {
+  #nav-bar .navBrandContainer img {
+    width: 100px;
+    padding-top: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  #nav-bar {
+    height: 65px;
+  }
+  #nav-bar .navBrandContainer {
+    display: block;
+    position: relative;
+    width: 120px;
+    margin: 0px auto 0px auto;
+  }
+  #nav-bar .nav-brand-menu-button {
+    width: 45px;
+    height: 65px;
+    padding-top: 24px;
+  }
+  #nav-bar .nav-brand-menu-button img {
+    margin: 0px 0px 0px 15px;
+  }
+  #nav-bar .nav-brand-menu-circle-number {
+    top: 15px;
+    margin-left: 23px;
+  }
+  #nav-bar .navBrandContainer a img {
+    width: 100px;
+    padding-top: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+  #nav-bar #dashboard {
+    display: none;
+  }
+  #nav-bar .burger {
+    display: none;
+  }
+  #nav-bar .messages {
+    right: 45px;
+  }
+  #nav-bar .notifications {
+    right: 90px;
+  }
+}
+@media (min-width: 1280px) {
+  #nav-bar .messages {
+    right: 45px;
+  }
+  #nav-bar .notifications {
+    right: 90px;
+  }
+  #nav-bar .navBrandContainer img {
+    width: 100px;
+    padding-top: 18px;
+    display: block;
+    margin: 0 auto;
+  }
+}

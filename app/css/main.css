@@ -1,4 +1,3 @@
-@value montserrat from './common/typography.css';
 
 /*
  * Add any global styles here
@@ -9,12 +8,6 @@
 
 body {
   margin: 0;
-}
-
-.app {
-  composes: box from './common/layout.css';
-
-  font-family: montserrat;
-  font-weight: normal;
-  font-smoothing: antialiased;
+  background-color: #eceff1;
+  font-family: Roboto,sans-serif;
 }

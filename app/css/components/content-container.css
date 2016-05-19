@@ -1,0 +1,63 @@
+#modal-content {
+  position: fixed;
+  top: 50px;
+  border: solid 1px #DEDEDE;
+  width: 100%;
+  height: 300px;
+  right: 0px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  border-radius: 4px;
+}
+#modal-content .header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  padding: 20px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e4eaec;
+}
+#modal-content .header .title {
+  position: absolute;
+}
+#modal-content .header .news span {
+  border-radius: 1em;
+  border: 1px solid #57c7d4;
+  padding: 2px;
+  font-weight: bold;
+  font-size: smaller;
+  color: white;
+  background-color: #57c7d4;
+}
+#modal-content .header .news {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  padding-right: 10px;
+}
+#modal-content .content {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+}
+#modal-content .footer {
+  background-color: #f3f7f9;
+  border-top: 1px solid #e4eaec;
+  padding: 20px 20px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+}
+#modal-content .footer a {
+  color: #89A7BB;
+}
+@media (min-width: 992px) {
+  #modal-content {
+    width: 300px;
+    top: 65px;
+  }
+}

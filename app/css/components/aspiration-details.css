@@ -1,0 +1,251 @@
+#aspiration-details {
+  background-color: #fff;
+  font-size: 14px;
+  overflow: auto;
+  margin-top: 66px;
+}
+#aspiration-details .page-header {
+  position: fixed;
+  width: 100%;
+  top: 50px;
+  left: 0px;
+}
+#aspiration-details .text-over-image {
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+}
+#aspiration-details .only-desktop {
+  display: none;
+}
+#aspiration-details .aspiration-image-container {
+  width: 100%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+#aspiration-details .aspiration-image-container img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+#aspiration-details .aspiration-container {
+  width: 100%;
+  border: 0;
+  height: 150px;
+  overflow: hidden;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  border-radius: 0px;
+}
+#aspiration-details .text-container {
+  width: 100%;
+  padding: 15px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#aspiration-details .field-title {
+  width: 100%;
+  color: #5b5b5b;
+  font-weight: bold;
+  display: flex;
+  width: 30%;
+}
+#aspiration-details .field-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px;
+  display: block;
+  margin-bottom: 10px;
+}
+#aspiration-details .text-position, #aspiration-details .field-title, #aspiration-details .field-value {
+  padding: 2px;
+}
+#aspiration-details .aspiration-component {
+  height: 250px;
+}
+#aspiration-details .field-value {
+  width: 70%;
+  color: #757575;
+  display: flex;
+  width: 70%;
+}
+#aspiration-details .goals-rows a {
+  text-decoration: none;
+}
+#aspiration-details .goal-span, #aspiration-details .goal-span-green, #aspiration-details .goal-span-red {
+  float: left;
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+#aspiration-details .goal-span-green {
+  background-color: #78c226;
+}
+#aspiration-details .goal-span-red {
+  background-color: #d0021b;
+}
+#aspiration-details .probability, #aspiration-details .probability-green, #aspiration-details .probability-red {
+  display: flex;
+  width: 58%;
+}
+#aspiration-details .probability-green {
+  color: #78c226;
+}
+#aspiration-details .probability-red {
+  color: #d0021b;
+  display: inline-flex;
+}
+#aspiration-details .aspiration-row-container {
+  background-color: #fafafa;
+  border-bottom: 1px solid #d8d8d8;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}
+#aspiration-details .fix-button {
+  float: left;
+  width: 55px;
+  background-color: #d0021b;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  height: 20px;
+}
+#aspiration-details .row-title {
+  float: left;
+  color: gray;
+  padding-left: 10px;
+}
+#aspiration-details .aspiration-text {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-size: 14px;
+}
+#aspiration-details .goal-detail-link {
+  width: 10%;
+  height: 100%;
+  font-size: 30px;
+  color: #b4b4b4;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+#aspiration-details .detail-container {
+  width: 100%;
+}
+#aspiration-details .new-goal-container {
+  padding: 40px;
+}
+#aspiration-details .new-goal-container img {
+  width: 75px;
+  height: 115px;
+}
+#aspiration-details .span-title {
+  padding-left: 15px;
+  width: 42%;
+  overflow: auto;
+  display: flex;
+}
+@media (min-width: 700px) {
+  #aspiration-details .text-over-image {
+    margin-top: 50px;
+  }
+  #aspiration-details .field-container {
+    display: flex;
+  }
+  #aspiration-details .text-container {
+    height: 100%;
+  }
+}
+@media (min-width: 992px) {
+  #aspiration-details {
+    height: calc(100vh - 120px);
+    margin-top: 0px;
+  }
+  #aspiration-details .text-over-image {
+    margin-top: 20px;
+  }
+  #aspiration-details .aspiration-container {
+    height: 250px !important;
+    width: 250px !important;
+    display: flex;
+    overflow: initial;
+    border-radius: 20px;
+  }
+  #aspiration-details .aspiration-container img {
+    float: left;
+    display: inherit;
+  }
+  #aspiration-details .only-desktop {
+    display: inherit;
+    width: 80%;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+  }
+  #aspiration-details .page-header {
+    position: static;
+  }
+  #aspiration-details .text-position, #aspiration-details .field-title, #aspiration-details .field-value {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding: 0px;
+  }
+  #aspiration-details .field-container {
+    width: 100%;
+    display: flex;
+    margin: 6px 0px 10px 0px;
+  }
+  #aspiration-details .field-title {
+    width: 30%;
+    font-size: 20px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  #aspiration-details .field-value {
+    font-size: 14px;
+  }
+  #aspiration-details .text-container {
+    width: calc(100% - 275px);
+    display: flex;
+    padding-left: 30px;
+    margin-top: 30px;
+  }
+  #aspiration-details .aspiration-text {
+    font-size: 14px;
+  }
+  #aspiration-details .detail-container {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  #aspiration-details .span-title {
+    width: 60%;
+  }
+  #aspiration-details .probability, #aspiration-details .probability-green, #aspiration-details .probability-red {
+    width: 40%;
+  }
+}

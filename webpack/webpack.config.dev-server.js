@@ -22,11 +22,7 @@ var commonLoaders = [
   { test: /\.json$/, loader: "json-loader" },
   {
     test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-    loader: 'url',
-    query: {
-        name: '[hash].[ext]',
-        limit: 10000,
-    }
+    loader: 'file'
   },
   { test: /\.html$/, loader: 'html-loader' }
 ];

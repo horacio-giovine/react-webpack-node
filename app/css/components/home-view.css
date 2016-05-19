@@ -1,0 +1,20 @@
+#homeview {
+  height: 100%;
+}
+#homeview #dashboard {
+  display: none;
+}
+
+#homeview > .content {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+@media (min-width: 992px) {
+  #homeview #dashboard {
+    display: initial;
+  }
+  #homeview > .content {
+    margin-left: 260px;
+  }
+}
