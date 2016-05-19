@@ -1,5 +1,5 @@
-import Tabs from './tabs'
-import Pane from '../Pane/pane'
+import Tabs from 'components/tab/tabs'
+import Pane from 'components/tab/pane'
 import {mount, render, shallow} from 'enzyme'
 import React from 'react'
 import assert from 'assert'

@@ -1,4 +1,4 @@
-import ModalItem from './modalItem'
+import ModalItem from 'components/nav-bar/modal-item/modal-item'
 import {mount, render, shallow} from 'enzyme'
 import React from 'react'
 import assert from 'assert'

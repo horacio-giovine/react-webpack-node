@@ -1,4 +1,4 @@
-import HomeView from './homeView'
+import HomeView from 'containers/home-view/home-view'
 import {mount, render, shallow} from 'enzyme'
 import React from 'react'
 import assert from 'assert'
