@@ -48,7 +48,7 @@ module.exports = {
       loaders: commonLoaders.concat([
            {
               test: /\.css$/,
-              loader: 'css/locals?module&localIdentName=[name]__[local]___[hash:base64:5]'
+              loader: 'css/locals'
            }
       ])
     },
