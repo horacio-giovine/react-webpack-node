@@ -133,7 +133,7 @@ export function getUsers(req, res, next) {
       //   console.log('got new token success RUN AGAING::::::::::::: ', response);
       //   //return getUsers(req, res, next);
       // })
-      getNewToken()
+      getNewToken(req.user.accessToken)
       .then(function(response){
         console.log('got new token!!!');
       })
