@@ -153,8 +153,9 @@ export function getUsers(req, res, next) {
       //   //return getUsers(req, res, next);
       // })
       getNewToken(req.user.refreshToken, req.user.profile.Id)
-      .then(function(response){
+      .then(function(access_token){
         console.log('got new token!!!');
+        req.user.accessToken = access_token;
         getUsers(req, res, next);
       },
       function(err){
@@ -187,7 +188,7 @@ function getNewToken(refreshToken, userId) {
     )
     .then(function (response) {
       console.log('got new token');
-      return resolve('resolve got new token');
+      //return resolve('resolve got new token');
 
       User.findOneAndUpdate(
         {
@@ -201,9 +202,10 @@ function getNewToken(refreshToken, userId) {
           console.log(error);
           console.log(doc);
           if(error){
-            return done(error, null);
+            return reject(error);
           }else{
-            return done(null, existingUser);
+            console.log('the new token is: ', response.access_token);
+            return resolve(response.access_token);
           }
         }
       );
