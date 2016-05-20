@@ -131,7 +131,7 @@ export function getUsers(req, res, next) {
       axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
       .then(function (response) {
         console.log('got new token success RUN AGAING::::::::::::: ', response);
-        return getUsers(req, res, next);
+        //return getUsers(req, res, next);
       })
     }
   });
@@ -156,30 +156,30 @@ export function getNewToken(req, res, next) {
     }
   )
   .then(function (response) {
-    console.log('new token response: ', response);
+    //console.log('new token response: ', response);
 
-    User.findOneAndUpdate(
-      {
-        'profile.Id': req.user.profile.Id
-      },
-      {
-        'accessToken': response.access_token
-      },
-      {},
-      (error, doc) => {
-        console.log(error);
-        console.log(doc);
-        if(error){
-          return res.sendStatus(400);
-        }else{
-          return res.sendStatus(200);
-        }
+    // User.findOneAndUpdate(
+    //   {
+    //     'profile.Id': req.user.profile.Id
+    //   },
+    //   {
+    //     'accessToken': response.access_token
+    //   },
+    //   {},
+    //   (error, doc) => {
+    //     console.log(error);
+    //     console.log(doc);
+    //     if(error){
+    //       return res.sendStatus(400);
+    //     }else{
+    //       return res.sendStatus(200);
+    //     }
 
-      }
-    );
+    //   }
+    // );
   })
   .catch(function (response) {
-    console.log('ERROR in getting new token: ', response);
+    //console.log('ERROR in getting new token: ', response);
   });
 }
 
