@@ -156,7 +156,7 @@ export function getUsers(req, res, next) {
       .then(function(access_token){
         console.log('got new token!!!');
         req.user.accessToken = access_token;
-        //getUsers(req, res, next);
+        getUsers(req, res, next);
       },
       function(err){
         console.log('go an error :(');
@@ -204,8 +204,8 @@ function getNewToken(refreshToken, userId) {
           if(error){
             return reject(error);
           }else{
-            console.log('the new token is: ', response);
-            return resolve(response.access_token);
+            console.log('the new token is: ', response.data.access_token);
+            return resolve(response.data.access_token);
           }
         }
       );
