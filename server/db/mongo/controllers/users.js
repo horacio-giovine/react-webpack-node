@@ -123,9 +123,6 @@ export function getUsers(req, res, next) {
   .then(function (response) {
     console.log('users: ', response.data);
     return res.status(200).json(response.data);
-    // return res.status(200).json({
-    //       message: 'You have been successfully logged in.'
-    //     });
   })
   .catch(function (response) {
     console.log('ENTER CATCH');
