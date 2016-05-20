@@ -138,7 +138,7 @@ export function getUsers(req, res, next) {
 }
 
 export function getNewToken(req, res, next) {
-  console.log('IN getNewToken');
+  console.log('IN getNewToken: ', req.user);
   axios(
     {
       method: 'post',
@@ -147,7 +147,8 @@ export function getNewToken(req, res, next) {
         grant_type: 'refresh_token',
         client_id: salesforceSecrets.clientId,
         client_secret: salesforceSecrets.clientSecret,
-        refresh_token: req.user.refreshToken
+        refresh_token: req.user.refreshToken,
+        format: 'application/json'
       },
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -169,10 +170,10 @@ export function getNewToken(req, res, next) {
         return res.sendStatus(200);
       }
     );
+  })
+  .catch(function (response) {
+    console.log('ERROR in getting new token: ', response);
   });
-  // .catch(function (response) {
-  //   console.log('ERROR in getting new token: ');
-  // });
 }
 
 
