@@ -195,7 +195,7 @@ function getNewToken(refreshToken, userId) {
           'profile.Id': userId
         },
         {
-          'accessToken': response.access_token
+          'accessToken': response.data.access_token
         },
         {},
         (error, doc) => {
