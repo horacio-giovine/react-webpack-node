@@ -167,7 +167,14 @@ export function getNewToken(req, res, next) {
       },
       {},
       (error, doc) => {
-        return res.sendStatus(200);
+        console.log(error);
+        console.log(doc);
+        if(error){
+          return res.sendStatus(400);
+        }else{
+          return res.sendStatus(200);
+        }
+
       }
     );
   })
