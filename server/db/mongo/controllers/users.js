@@ -1,64 +1,64 @@
 import User from '../models/user';
-import passport from 'passport';
+//import passport from 'passport';
 import axios from 'axios'
 import { salesforce as salesforceSecrets } from '../../../config/secrets'
 
 /**
  * POST /login
  */
-export function login(req, res, next) {
-  // Do email and password validation for the server
-  passport.authenticate('local', (authErr, user, info) => {
-    if (authErr) return next(authErr);
-    if (!user) {
-      return res.status(401).json({ message: info.message });
-    }
-    // Passport exposes a login() function on req (also aliased as
-    // logIn()) that can be used to establish a login session
-    return req.logIn(user, (loginErr) => {
-      if (loginErr) return res.status(401).json({ message: loginErr });
-      return res.status(200).json({
-        message: 'You have been successfully logged in.'
-      });
-    });
-  })(req, res, next);
-}
+// export function login(req, res, next) {
+//   // Do email and password validation for the server
+//   passport.authenticate('local', (authErr, user, info) => {
+//     if (authErr) return next(authErr);
+//     if (!user) {
+//       return res.status(401).json({ message: info.message });
+//     }
+//     // Passport exposes a login() function on req (also aliased as
+//     // logIn()) that can be used to establish a login session
+//     return req.logIn(user, (loginErr) => {
+//       if (loginErr) return res.status(401).json({ message: loginErr });
+//       return res.status(200).json({
+//         message: 'You have been successfully logged in.'
+//       });
+//     });
+//   })(req, res, next);
+// }
 
 /**
  * POST /logout
  */
-export function logout(req, res) {
-  // Do email and password validation for the server
-  req.logout();
-  res.redirect('/');
-}
+// export function logout(req, res) {
+//   // Do email and password validation for the server
+//   req.logout();
+//   res.redirect('/');
+// }
 
 /**
  * POST /signup
  * Create a new local account
  */
-export function signUp(req, res, next) {
-  const user = new User({
-    email: req.body.email,
-    password: req.body.password
-  });
+// export function signUp(req, res, next) {
+//   const user = new User({
+//     email: req.body.email,
+//     password: req.body.password
+//   });
 
-  User.findOne({ email: req.body.email }, (findErr, existingUser) => {
-    if (existingUser) {
-      return res.status(409).json({ message: 'Account with this email address already exists!' });
-    }
+//   User.findOne({ email: req.body.email }, (findErr, existingUser) => {
+//     if (existingUser) {
+//       return res.status(409).json({ message: 'Account with this email address already exists!' });
+//     }
 
-    return user.save((saveErr) => {
-      if (saveErr) return next(saveErr);
-      return req.logIn(user, (loginErr) => {
-        if (loginErr) return res.status(401).json({ message: loginErr });
-        return res.status(200).json({
-          message: 'You have been successfully logged in.'
-        });
-      });
-    });
-  });
-}
+//     return user.save((saveErr) => {
+//       if (saveErr) return next(saveErr);
+//       return req.logIn(user, (loginErr) => {
+//         if (loginErr) return res.status(401).json({ message: loginErr });
+//         return res.status(200).json({
+//           message: 'You have been successfully logged in.'
+//         });
+//       });
+//     });
+//   });
+// }
 
 export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   //When Passport authenticates a request, it parses the credentials contained in the request.
@@ -67,8 +67,6 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   //supply Passport with the user that authenticated.
   //After this, the serializeUser method will run with the user object, and it will decide what to save to the session
 
-
-  //console.log('profile: ', profile);
 
   const user = new User({
     accessToken: token,
@@ -89,7 +87,6 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   });
 
   User.findOne({ 'profile.Id': profile._raw.user_id }, (findErr, existingUser) => {
-    //console.log('find user with profile id = ' + profile._raw.user_id);
     if (existingUser) {
       console.log('the user exists, update token and refresh');
 
@@ -103,8 +100,6 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
         },
         {},
         (error, doc) => {
-          //console.log(error);
-          //console.log(doc);
           if(error){
             return done(error, null);
           }else{
@@ -129,7 +124,6 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 }
 
 export function getUsers(req, res, next) {
-  //console.log('========================::::::::: ', req.user);
   axios(
     {
       method: 'get',
@@ -146,12 +140,6 @@ export function getUsers(req, res, next) {
   function (response) {
     console.log('ENTER ERROR FUNCTION: ', response.status);
     if(response.status === 401){
-      //console.log('catch IN GET USERS with response.status: ', response.status);
-      // axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
-      // .then(function (response) {
-      //   console.log('got new token success RUN AGAING::::::::::::: ', response);
-      //   //return getUsers(req, res, next);
-      // })
       getNewToken(req.user.refreshToken, req.user.profile.Id)
       .then(function(access_token){
         console.log('got new token!!');
@@ -165,10 +153,7 @@ export function getUsers(req, res, next) {
   })
 }
 
-function getNewToken(refreshToken, userId) {
-  //console.log('IN getNewToken: ', refreshToken);
-  //console.log('salesforceSecrets: ', salesforceSecrets);
-
+export function getNewToken(refreshToken, userId) {
   return new Promise(function(resolve, reject){
     axios(
       {
@@ -187,9 +172,6 @@ function getNewToken(refreshToken, userId) {
       }
     )
     .then(function (response) {
-      //console.log('got new token');
-      //return resolve('resolve got new token');
-
       User.findOneAndUpdate(
         {
           'profile.Id': userId
@@ -199,29 +181,24 @@ function getNewToken(refreshToken, userId) {
         },
         {},
         (error, doc) => {
-          //console.log(error);
-          //console.log(doc);
           if(error){
             return reject(error);
           }else{
-            //console.log('the new token is: ', response.data.access_token);
             return resolve(response.data.access_token);
           }
         }
       );
     },
     function (response) {
-      //console.log('error getting new token: ', response);
       return reject('reject error getting new token');
-      //console.log('ERROR in getting new token: ', response);
     });
   });
 }
 
 export default {
-  login,
-  logout,
-  signUp,
+  //login,
+  //logout,
+  //signUp,
   salesforceVerifyCallback,
   getUsers,
   getNewToken

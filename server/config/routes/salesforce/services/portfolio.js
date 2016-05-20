@@ -1,15 +1,7 @@
 import { isAuthenticated } from '../../../passport'
 
 export default (app, controllers) => {
-  app.route('/api/portfolio')
-    .get(isAuthenticated, function(req, res) {
-      controllers.portfolio.getPorfolios(req, res);
-      //res.end();
-    });
-    // .post(function(req, res) {
-    //   res.send('Add a book');
-    // });
-    // .put(function(req, res) {
-    //   res.send('Update the book');
-    // });
+  app.get('/api/portfolios', isAuthenticated, function(req, res, next) {
+    controllers.portfolio.getPorfolios(req, res, next);
+  });
 }
