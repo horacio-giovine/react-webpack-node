@@ -122,18 +122,17 @@ export function getUsers(req, res, next) {
   )
   .then(function (response) {
     console.log('users: ', response.data);
-    res.json(response);
+    return res.json(response);
   })
   .catch(function (response) {
-    console.log('catch IN GET USERS');
-    // console.log('ERROR get getNewToken-->>>>', response.status);
-    // //if(response.status === 401){
-    //   axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
-    //   .then(function (response) {
-    //     console.log('get new token success');
-    //     res.json(response);
-    //   })
-    // //}
+    if(response.status === 401){
+      console.log('catch IN GET USERS with response.status: ', response.status);
+      axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
+      .then(function (response) {
+        console.log('got new token success');
+        return getUsers(req, res, next);
+      })
+    }
   });
 }
 
@@ -155,12 +154,24 @@ export function getNewToken(req, res, next) {
     }
   )
   .then(function (response) {
-    console.log('new token response: ');
-    res.json(response);
-  })
-  .catch(function (response) {
-    console.log('ERROR in getting new token: ');
+    console.log('new token response: ', response);
+
+    User.findOneAndUpdate(
+      {
+        'profile.Id': req.user.profile.Id
+      },
+      {
+        'accessToken': response.access_token
+      },
+      {},
+      (error, doc) => {
+        return res.sendStatus(200);
+      }
+    );
   });
+  // .catch(function (response) {
+  //   console.log('ERROR in getting new token: ');
+  // });
 }
 
 
