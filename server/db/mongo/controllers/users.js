@@ -122,7 +122,7 @@ export function getUsers(req, res, next) {
   )
   .then(function (response) {
     console.log('users: ', response.data);
-    return res.json(response);
+    return res.send(JSON.stringify(response));
   })
   .catch(function (response) {
     console.log('ENTER CATCH');
