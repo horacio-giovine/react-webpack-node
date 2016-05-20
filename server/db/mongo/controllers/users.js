@@ -136,10 +136,10 @@ export function getUsers(req, res, next) {
       getNewToken(req.user.refreshToken)
       .then(function(response){
         console.log('got new token!!!');
-      })
-      .then(function(err){
+      },
+      function(err){
         console.log('go an error :(');
-      });
+      })
     }
   });
 }
@@ -188,9 +188,9 @@ function getNewToken(refreshToken) {
 
       //   }
       // );
-    })
-    .catch(function (response) {
-      console.log('error getting new token');
+    },
+    function (response) {
+      console.log('error getting new token: ', response);
       return reject('reject error getting new token');
       //console.log('ERROR in getting new token: ', response);
     });
