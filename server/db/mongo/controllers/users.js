@@ -111,7 +111,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 
 export function getUsers(req, res, next) {
   console.log('========================::::::::: ', req.user);
-  axios(
+  return axios(
     {
       method: 'get',
       url: 'https://cs10.salesforce.com/services/apexrest/v1/user',
@@ -122,7 +122,7 @@ export function getUsers(req, res, next) {
   )
   .then(function (response) {
     console.log('users: ', response.data);
-    return res.send(JSON.stringify(response));
+    return res.status(200).json(response);
   })
   .catch(function (response) {
     console.log('ENTER CATCH');
