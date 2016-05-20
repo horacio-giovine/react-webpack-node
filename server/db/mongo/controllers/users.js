@@ -152,7 +152,7 @@ export function getUsers(req, res, next) {
       //   console.log('got new token success RUN AGAING::::::::::::: ', response);
       //   //return getUsers(req, res, next);
       // })
-      getNewToken(req.user.refreshToken)
+      getNewToken(req.user.refreshToken, req.user.profile.Id)
       .then(function(response){
         console.log('got new token!!!');
         getUsers(req, res, next);
@@ -164,7 +164,7 @@ export function getUsers(req, res, next) {
   })
 }
 
-function getNewToken(refreshToken) {
+function getNewToken(refreshToken, userId) {
   console.log('IN getNewToken: ', refreshToken);
   console.log('salesforceSecrets: ', salesforceSecrets);
 
@@ -189,25 +189,24 @@ function getNewToken(refreshToken) {
       console.log('got new token');
       return resolve('resolve got new token');
 
-      // User.findOneAndUpdate(
-      //   {
-      //     'profile.Id': req.user.profile.Id
-      //   },
-      //   {
-      //     'accessToken': response.access_token
-      //   },
-      //   {},
-      //   (error, doc) => {
-      //     console.log(error);
-      //     console.log(doc);
-      //     if(error){
-      //       return res.sendStatus(400);
-      //     }else{
-      //       return res.sendStatus(200);
-      //     }
-
-      //   }
-      // );
+      User.findOneAndUpdate(
+        {
+          'profile.Id': userId
+        },
+        {
+          'accessToken': response.access_token
+        },
+        {},
+        (error, doc) => {
+          console.log(error);
+          console.log(doc);
+          if(error){
+            return done(error, null);
+          }else{
+            return done(null, existingUser);
+          }
+        }
+      );
     },
     function (response) {
       console.log('error getting new token: ', response);
