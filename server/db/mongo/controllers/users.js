@@ -142,9 +142,9 @@ export function getUsers(req, res, next) {
   .then(function (response) {
     console.log('users: ', response.data);
     return res.status(200).json(response.data);
-  })
-  .catch(function (response) {
-    console.log('ENTER CATCH: ', response.status);
+  },
+  function (response) {
+    console.log('ENTER ERROR FUNCTION: ', response.status);
     if(response.status === 401){
       console.log('catch IN GET USERS with response.status: ', response.status);
       // axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
@@ -155,12 +155,13 @@ export function getUsers(req, res, next) {
       getNewToken(req.user.refreshToken)
       .then(function(response){
         console.log('got new token!!!');
+        getUsers(req, res, next);
       },
       function(err){
         console.log('go an error :(');
       })
     }
-  });
+  })
 }
 
 function getNewToken(refreshToken) {
