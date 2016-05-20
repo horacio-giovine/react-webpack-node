@@ -7,7 +7,9 @@ import activities from 'reducers/reducer-activities';
 import aspirations from 'reducers/reducer-aspiration-detail';
 import goalDetail from 'reducers/reducer-goal-detail'
 import goals from 'reducers/reducer-goals'
+import aspiration from 'reducers/reducer-aspiration'
 import { routerReducer as routing } from 'react-router-redux';
+
 
 // Combine reducers with routeReducer which keeps track of
 // router state
@@ -20,7 +22,8 @@ const rootReducer = combineReducers({
   activities,
   aspirations,
   goalDetail,
-  goals
+  goals,
+  aspiration
 });
 
 export default rootReducer;

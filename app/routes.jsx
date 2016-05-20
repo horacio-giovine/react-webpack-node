@@ -8,6 +8,8 @@ import Vision from 'views/vision/vision'
 import AspirationDetails from 'views/aspiration-details/aspiration-details'
 import GoalDetail from 'views/goal-detail/goal-detail'
 import Goals from 'views/goals/goals'
+import Login from 'views/login-form/login-form'
+import Aspiration from 'views/aspiration/aspiration'
 
 import LoginOrRegister from 'containers/LoginOrRegister'
 /*
@@ -45,6 +47,8 @@ export default (store) => {
         <Route path='goal-detail' component={GoalDetail} />
         <Route path='goals' component={Goals} />
         <Route path='login' component={LoginOrRegister} />
+        <Route path='loginform' component={Login} />
+        <Route path='aspiration' component={Aspiration} />
       </Route>
       <Route path='profile' component={Profile} />
     </Route>
