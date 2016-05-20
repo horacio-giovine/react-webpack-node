@@ -130,7 +130,7 @@ export function getUsers(req, res, next) {
       console.log('catch IN GET USERS with response.status: ', response.status);
       axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
       .then(function (response) {
-        console.log('got new token success');
+        console.log('got new token success RUN AGAING::::::::::::: ', response);
         return getUsers(req, res, next);
       })
     }
