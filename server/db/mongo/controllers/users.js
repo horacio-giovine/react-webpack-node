@@ -68,7 +68,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   //After this, the serializeUser method will run with the user object, and it will decide what to save to the session
 
 
-  console.log('profile: ', profile);
+  //console.log('profile: ', profile);
 
   const user = new User({
     accessToken: token,
@@ -89,7 +89,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   });
 
   User.findOne({ 'profile.Id': profile._raw.user_id }, (findErr, existingUser) => {
-    console.log('find user with profile id = ' + profile._raw.user_id);
+    //console.log('find user with profile id = ' + profile._raw.user_id);
     if (existingUser) {
       console.log('the user exists, update token and refresh');
 
@@ -103,8 +103,8 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
         },
         {},
         (error, doc) => {
-          console.log(error);
-          console.log(doc);
+          //console.log(error);
+          //console.log(doc);
           if(error){
             return done(error, null);
           }else{
@@ -129,7 +129,7 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
 }
 
 export function getUsers(req, res, next) {
-  console.log('========================::::::::: ', req.user);
+  //console.log('========================::::::::: ', req.user);
   axios(
     {
       method: 'get',
@@ -140,13 +140,13 @@ export function getUsers(req, res, next) {
     }
   )
   .then(function (response) {
-    console.log('users: ', response.data);
+    console.log('users: ', response.data.result.portfolio);
     return res.status(200).json(response.data);
   },
   function (response) {
     console.log('ENTER ERROR FUNCTION: ', response.status);
     if(response.status === 401){
-      console.log('catch IN GET USERS with response.status: ', response.status);
+      //console.log('catch IN GET USERS with response.status: ', response.status);
       // axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
       // .then(function (response) {
       //   console.log('got new token success RUN AGAING::::::::::::: ', response);
@@ -154,20 +154,20 @@ export function getUsers(req, res, next) {
       // })
       getNewToken(req.user.refreshToken, req.user.profile.Id)
       .then(function(access_token){
-        console.log('got new token!!!');
+        console.log('got new token!!');
         req.user.accessToken = access_token;
         getUsers(req, res, next);
       },
       function(err){
-        console.log('go an error :(');
+        console.log('got an error :(');
       })
     }
   })
 }
 
 function getNewToken(refreshToken, userId) {
-  console.log('IN getNewToken: ', refreshToken);
-  console.log('salesforceSecrets: ', salesforceSecrets);
+  //console.log('IN getNewToken: ', refreshToken);
+  //console.log('salesforceSecrets: ', salesforceSecrets);
 
   return new Promise(function(resolve, reject){
     axios(
@@ -187,7 +187,7 @@ function getNewToken(refreshToken, userId) {
       }
     )
     .then(function (response) {
-      console.log('got new token');
+      //console.log('got new token');
       //return resolve('resolve got new token');
 
       User.findOneAndUpdate(
@@ -199,19 +199,19 @@ function getNewToken(refreshToken, userId) {
         },
         {},
         (error, doc) => {
-          console.log(error);
-          console.log(doc);
+          //console.log(error);
+          //console.log(doc);
           if(error){
             return reject(error);
           }else{
-            console.log('the new token is: ', response.data.access_token);
+            //console.log('the new token is: ', response.data.access_token);
             return resolve(response.data.access_token);
           }
         }
       );
     },
     function (response) {
-      console.log('error getting new token: ', response);
+      //console.log('error getting new token: ', response);
       return reject('reject error getting new token');
       //console.log('ERROR in getting new token: ', response);
     });
