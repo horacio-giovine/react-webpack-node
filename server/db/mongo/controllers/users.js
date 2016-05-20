@@ -91,8 +91,27 @@ export function salesforceVerifyCallback(token, refreshToken, profile, done) {
   User.findOne({ 'profile.Id': profile._raw.user_id }, (findErr, existingUser) => {
     console.log('find user with profile id = ' + profile._raw.user_id);
     if (existingUser) {
-      console.log('the user exists');
-      return done(null, existingUser);
+      console.log('the user exists, update token and refresh');
+
+      User.findOneAndUpdate(
+        {
+          'profile.Id': existingUser.profile.Id
+        },
+        {
+          'accessToken': token,
+          'refreshToken': refreshToken
+        },
+        {},
+        (error, doc) => {
+          console.log(error);
+          console.log(doc);
+          if(error){
+            return done(error, null);
+          }else{
+            return done(null, existingUser);
+          }
+        }
+      );
     }else{
       console.log('the user does NOT exist');
       user.save((saveErr) => {
@@ -196,7 +215,6 @@ function getNewToken(refreshToken) {
     });
   });
 }
-
 
 export default {
   login,
