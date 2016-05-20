@@ -125,6 +125,7 @@ export function getUsers(req, res, next) {
     return res.json(response);
   })
   .catch(function (response) {
+    console.log('ENTER CATCH');
     if(response.status === 401){
       console.log('catch IN GET USERS with response.status: ', response.status);
       axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
