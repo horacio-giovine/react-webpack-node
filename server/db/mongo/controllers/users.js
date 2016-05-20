@@ -128,58 +128,70 @@ export function getUsers(req, res, next) {
     console.log('ENTER CATCH: ', response.status);
     if(response.status === 401){
       console.log('catch IN GET USERS with response.status: ', response.status);
-      axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
-      .then(function (response) {
-        console.log('got new token success RUN AGAING::::::::::::: ', response);
-        //return getUsers(req, res, next);
+      // axios.get('https://brightplan-oktana-horacio.herokuapp.com/api/getNewToken')
+      // .then(function (response) {
+      //   console.log('got new token success RUN AGAING::::::::::::: ', response);
+      //   //return getUsers(req, res, next);
+      // })
+      getNewToken()
+      .then(function(response){
+        console.log('got new token!!!');
       })
+      .then(function(err){
+        console.log('go an error :(');
+      });
     }
   });
 }
 
-export function getNewToken(req, res, next) {
-  console.log('IN getNewToken: ', req.user);
-  axios(
-    {
-      method: 'post',
-      url: salesforceSecrets.tokenURL,
-      params: {
-        grant_type: 'refresh_token',
-        client_id: salesforceSecrets.clientId,
-        client_secret: salesforceSecrets.clientSecret,
-        refresh_token: req.user.refreshToken,
-        format: 'application/json'
-      },
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+function getNewToken(refreshToken) {
+  console.log('IN getNewToken: ', refreshToken);
+  return new Promise(function(resolve, reject){
+    axios(
+      {
+        method: 'post',
+        url: salesforceSecrets.tokenURL,
+        params: {
+          grant_type: 'refresh_token',
+          client_id: salesforceSecrets.clientId,
+          client_secret: salesforceSecrets.clientSecret,
+          refresh_token: refreshToken,
+          format: 'application/json'
+        },
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
       }
-    }
-  )
-  .then(function (response) {
-    //console.log('new token response: ', response);
+    )
+    .then(function (response) {
+      console.log('got new token');
+      return resolve('resolve got new token');
 
-    // User.findOneAndUpdate(
-    //   {
-    //     'profile.Id': req.user.profile.Id
-    //   },
-    //   {
-    //     'accessToken': response.access_token
-    //   },
-    //   {},
-    //   (error, doc) => {
-    //     console.log(error);
-    //     console.log(doc);
-    //     if(error){
-    //       return res.sendStatus(400);
-    //     }else{
-    //       return res.sendStatus(200);
-    //     }
+      // User.findOneAndUpdate(
+      //   {
+      //     'profile.Id': req.user.profile.Id
+      //   },
+      //   {
+      //     'accessToken': response.access_token
+      //   },
+      //   {},
+      //   (error, doc) => {
+      //     console.log(error);
+      //     console.log(doc);
+      //     if(error){
+      //       return res.sendStatus(400);
+      //     }else{
+      //       return res.sendStatus(200);
+      //     }
 
-    //   }
-    // );
-  })
-  .catch(function (response) {
-    //console.log('ERROR in getting new token: ', response);
+      //   }
+      // );
+    })
+    .catch(function (response) {
+      console.log('error getting new token');
+      return reject('reject error getting new token');
+      //console.log('ERROR in getting new token: ', response);
+    });
   });
 }
 
