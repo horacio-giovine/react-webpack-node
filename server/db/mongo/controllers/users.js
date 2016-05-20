@@ -146,6 +146,8 @@ export function getUsers(req, res, next) {
 
 function getNewToken(refreshToken) {
   console.log('IN getNewToken: ', refreshToken);
+  console.log('salesforceSecrets: ', salesforceSecrets);
+
   return new Promise(function(resolve, reject){
     axios(
       {
